@@ -2,13 +2,8 @@ import 'package:flutter/material.dart';
 
 class CustomInput extends StatelessWidget {
   final TextInputType tipo;
-  final bool hidden;
   final String title;
-  const CustomInput(
-      {super.key,
-      required this.tipo,
-      required this.hidden,
-      required this.title});
+  const CustomInput({super.key, required this.tipo, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +13,6 @@ class CustomInput extends StatelessWidget {
           horizontal: 28.0), // Ajusta el valor según tus necesidades
       child: TextField(
         keyboardType: tipo,
-        obscureText: hidden,
         decoration: InputDecoration(
           labelText: title,
           fillColor: Colors.white,

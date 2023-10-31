@@ -25,6 +25,8 @@ class Contenido0 extends StatefulWidget {
 class _Contenido0State extends State<Contenido0> {
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -39,7 +41,7 @@ class _Contenido0State extends State<Contenido0> {
                 children: [
                   Image.asset(
                     'assets/img/logo.jpg',
-                    width: 310.0,
+                    width: screenWidth * 0.75, // Ajustando el ancho aquí
                   ),
                   const CustomText(
                     title: 'RESERVA',
@@ -66,14 +68,14 @@ class _Contenido0State extends State<Contenido0> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30.0, bottom: 35.0),
+                    padding: const EdgeInsets.only(top: 28.0, bottom: 33.0),
                     child: Image.asset(
                       'assets/img/embarazada.png',
-                      width: 300.0,
+                      width: screenWidth * 0.66, // Ajustando el ancho aquí
                     ),
                   ),
                   const CustomBottomS(
-                    title: 'Ingresar',
+                    title: 'Empezar',
                     tam: 23.0,
                     destino: Screen1(),
                   )
