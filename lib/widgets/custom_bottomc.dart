@@ -18,19 +18,23 @@ class CustomBottomC extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: ElevatedButton(
             style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(const Color(0xFF9F51CA)),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                  const EdgeInsets.symmetric(vertical: 17.0, horizontal: 70.0),
-                )),
-            child: Row(children: [
+              backgroundColor:
+                  MaterialStateProperty.all<Color>(const Color(0xFF9F51CA)),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                const EdgeInsets.symmetric(vertical: 12.0),
+              ),
+              fixedSize: MaterialStateProperty.all<Size>(
+                const Size(250.0, 50.0), // Ancho predeterminado de 200.0
+              ),
+            ),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Padding(
                 padding: const EdgeInsets.only(
                     right:
                         10.0), // Ajusta el valor del relleno según tus necesidades
                 child: SizedBox(
-                  height: 32.0,
+                  height: 30.0,
                   child: Image.asset(path),
                 ),
               ),

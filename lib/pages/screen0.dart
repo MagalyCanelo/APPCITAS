@@ -28,63 +28,65 @@ class _Contenido0State extends State<Contenido0> {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 22.0, bottom: 28.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Container(
+            color: Colors.white,
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 45.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/img/logo.jpg',
-                    width: screenWidth * 0.75, // Ajustando el ancho aquí
-                  ),
-                  const CustomText(
-                    title: 'RESERVA',
-                    tam: 67,
-                    hexColor: '#9F51CA',
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Otomanopee One',
-                  ),
-                  const CustomText(
-                    title: 'DESDE',
-                    tam: 50,
-                    hexColor: '#F23574',
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Otomanopee One',
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 15.0),
-                    child: CustomText(
-                      title: 'cualquier lugar',
-                      tam: 35,
-                      hexColor: '#F23574',
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Montserrat',
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 28.0, bottom: 33.0),
-                    child: Image.asset(
-                      'assets/img/embarazada.png',
-                      width: screenWidth * 0.66, // Ajustando el ancho aquí
-                    ),
-                  ),
-                  const CustomBottomS(
-                    title: 'Empezar',
-                    tam: 23.0,
-                    destino: Screen1(),
+                  Column(
+                    children: [
+                      Image.asset(
+                        'assets/img/logo.jpg',
+                        width: screenWidth * 0.70, // Ajustando el ancho aquí
+                      ),
+                      const CustomText(
+                        title: 'RESERVA',
+                        tam: 60,
+                        color: 0XFF9F51CA,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Otomanopee One',
+                      ),
+                      const CustomText(
+                        title: 'DESDE',
+                        tam: 40,
+                        color: 0XFFF23574,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Otomanopee One',
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10.0),
+                        child: CustomText(
+                          title: 'cualquier lugar',
+                          tam: 30,
+                          color: 0XFFF23574,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Montserrat',
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 45.0),
+                        child: Image.asset(
+                          'assets/img/embarazada.png',
+                          width: screenWidth * 0.66, // Ajustando el ancho aquí
+                        ),
+                      ),
+                      const CustomBottomS(
+                        title: 'Empezar',
+                        tam: 23.0,
+                        destino: Screen1(),
+                      )
+                    ],
                   )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

@@ -26,44 +26,79 @@ class _Contenido7State extends State<Contenido7> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('APP PRUEBA'),
-          backgroundColor: const Color(0xFFF23574),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF23574),
+        actions: <Widget>[
+          IconButton(
+            icon: Image.asset('assets/img/campana.png',
+                width: 25.0), // Agrega la imagen aquí
+            onPressed: () {
+              // Coloca aquí el código que se ejecutará cuando se presione la imagen
+            },
+          ),
+        ],
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu), // Icono del Drawer
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
         ),
-        body: Container(
-            color: Colors.white,
-            width: double.infinity,
-            child: Column(children: [
-              const CustomText(
-                title: 'Bienvenido(a)',
-                tam: 35,
-                hexColor: '#695C5C',
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Otomanopee One',
-              ),
-              const CustomText(
-                title: 'Isabella Rodríguez',
-                tam: 34,
-                hexColor: '#695C5C',
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Otomanopee One',
-              ),
-              ClipRRect(
+      ),
+      body: Container(
+        color: Colors.white,
+        width: double.infinity,
+        child: Column(
+          children: [
+            const Padding(
+                padding: EdgeInsets.only(top: 60.0),
+                child: Column(children: [
+                  CustomText(
+                    title: 'Bienvenido(a)',
+                    tam: 33,
+                    color: 0XFF695C5C,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Otomanopee One',
+                  ),
+                  CustomText(
+                    title: 'Isabella Rodríguez',
+                    tam: 32,
+                    color: 0XFF695C5C,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Otomanopee One',
+                  ),
+                ])),
+            Padding(
+              padding: const EdgeInsets.only(top: 55.0, bottom: 65.0),
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(500),
                 child: Image.asset('assets/img/ecografia.png', width: 300.0),
               ),
-              const CustomBottomC(
-                title: 'Agendar Cita',
-                path: 'assets/img/agendar.png',
-                tam: 23.0,
-                destino: Screen1(),
-              ),
-              const CustomBottomC(
-                title: 'Ver Cita',
-                path: 'assets/img/verCita.png',
-                tam: 23.0,
-                destino: Screen1(),
-              )
-            ])));
+            ),
+            const CustomBottomC(
+              title: 'Agendar Cita',
+              path: 'assets/img/agendar.png',
+              tam: 20.0,
+              destino: Screen1(),
+            ),
+            const CustomBottomC(
+              title: 'Ver Cita',
+              path: 'assets/img/verCita.png',
+              tam: 20.0,
+              destino: Screen1(),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: const Color(0xFFF23574), // Color rosado
+        child: Container(
+          height: 8.0, // Altura de la línea
+        ),
+      ),
+    );
   }
 }

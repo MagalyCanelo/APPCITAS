@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class CustomText extends StatelessWidget {
   final String title;
   final double tam;
   final FontWeight fontWeight;
   final String fontFamily;
-  final String hexColor;
+  final int color;
   const CustomText(
       {super.key,
       required this.title,
       required this.tam,
-      required this.hexColor,
+      required this.color,
       required this.fontWeight,
       required this.fontFamily});
 
@@ -21,7 +20,7 @@ class CustomText extends StatelessWidget {
       title,
       style: TextStyle(
           fontSize: tam,
-          color: HexColor(hexColor),
+          color: Color(color),
           fontWeight: fontWeight,
           fontFamily: fontFamily),
     );
