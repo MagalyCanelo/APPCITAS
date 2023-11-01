@@ -90,7 +90,7 @@ class _Contenido2State extends State<Contenido2> {
                     const CustomBottomS(
                       title: 'Crear Cuenta',
                       tam: 20.0,
-                      destino: Screen2(),
+                      destino: Screen1(),
                     ),
                     TextButton(
                       style: ButtonStyle(

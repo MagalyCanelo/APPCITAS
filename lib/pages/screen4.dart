@@ -26,9 +26,9 @@ class _Screen4State extends State<Screen4> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 35.0, right: 20.0, left: 20.0, bottom: 5.0),
+                    top: 28.0, right: 20.0, left: 20.0, bottom: 5.0),
                 child: Image.asset('assets/img/corazon.jpg',
-                    width: 350, height: 95),
+                    width: 355, height: 100),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),

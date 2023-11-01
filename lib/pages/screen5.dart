@@ -1,5 +1,7 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen4.dart';
+import 'package:app/widgets/custom_input.dart';
+import 'package:app/widgets/custom_pass.dart';
 import 'package:flutter/material.dart';
 
 class Screen5 extends StatefulWidget {
@@ -13,98 +15,118 @@ class _Screen5State extends State<Screen5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: const Color(0XFFF23574),
-        ),
-        drawer: const Drawer(child: Midrawer()),
-        body: SingleChildScrollView(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: const Color(0XFFF23574),
+      ),
+      drawer: const Drawer(child: Midrawer()),
+      body: SingleChildScrollView(
           child: Center(
-              child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Image.asset('assets/img/corazon.jpg', width: 350, height: 85),
-                Image.asset('assets/img/letra.jpg', width: 350, height: 60),
-                const SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    Container(
-                      color: const Color(0XFF9F51CA),
-                      width: 5.0,
-                      height: 33.0,
-                    ),
-                    const SizedBox(width: 10.0),
-                    const Text(
-                      "PERFIL",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Otomanopee One',
-                          color: Color(0XFF9F51CA)),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                const CajaTexto(tipo: TextInputType.number, title: "DNI"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(tipo: TextInputType.text, title: "Nombres"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(tipo: TextInputType.text, title: "Apellidos"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(tipo: TextInputType.number, title: "Celular"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(
-                    tipo: TextInputType.emailAddress, title: "Correo"),
-                const SizedBox(height: 10.0),
-                TextField(
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                      labelText: "Contraseña",
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      suffixIcon: const Icon(Icons.remove_red_eye)),
-                ),
-                const SizedBox(height: 15.0),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => const Screen4())));
-                    },
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(250, 48),
-                        backgroundColor: const Color(0XFF9F51CA)),
-                    child: const Text(
-                      "Guardar",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold),
-                    ))
-              ],
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 22.0, right: 20.0, left: 20.0, bottom: 3.0),
+              child:
+                  Image.asset('assets/img/corazon.jpg', width: 350, height: 95),
             ),
-          )),
-        ));
-  }
-}
-
-class CajaTexto extends StatelessWidget {
-  final TextInputType tipo;
-  final String title;
-  const CajaTexto({super.key, required this.tipo, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: tipo,
-      decoration: InputDecoration(
-          labelText: title,
-          fillColor: Colors.white,
-          filled: true,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 17.0),
+              child:
+                  Image.asset('assets/img/letra.jpg', width: 345, height: 65),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(top: 10.0, left: 20.0, bottom: 10.0),
+              child: Row(
+                children: [
+                  Container(
+                    color: const Color(0XFF9F51CA),
+                    width: 5.0,
+                    height: 33.0,
+                  ),
+                  const SizedBox(width: 10.0),
+                  const Text(
+                    "PERFIL",
+                    style: TextStyle(
+                      fontSize: 25.5,
+                      fontFamily: 'Otomanopee One',
+                      color: Color(0XFF9F51CA),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const CustomInput(
+              tipo: TextInputType.number,
+              title: 'DNI',
+            ),
+            const CustomInput(
+              tipo: TextInputType.text,
+              title: 'Nombres',
+            ),
+            const CustomInput(
+              tipo: TextInputType.text,
+              title: 'Apellidos',
+            ),
+            const CustomInput(
+              tipo: TextInputType.number,
+              title: 'Celular',
+            ),
+            const CustomInput(
+              tipo: TextInputType.emailAddress,
+              title: 'Correo',
+            ),
+            const CustomPass(
+              tipo: TextInputType.text,
+              hidden: true,
+              title: 'Contraseña',
+            ),
+            const SizedBox(height: 15.0),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const Screen4())));
+                },
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(250, 48),
+                    backgroundColor: const Color(0XFF9F51CA)),
+                child: const Text(
+                  "Guardar",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold),
+                ))
+          ],
+        ),
+      )),
+      bottomNavigationBar: BottomAppBar(
+        color: const Color(0xFFF23574),
+        child: Container(
+          height: 8.0,
+        ),
+      ),
     );
   }
 }
+
+// class CajaTexto extends StatelessWidget {
+//   final TextInputType tipo;
+//   final String title;
+//   const CajaTexto({super.key, required this.tipo, required this.title});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return TextField(
+//       keyboardType: tipo,
+//       decoration: InputDecoration(
+//           labelText: title,
+//           fillColor: Colors.white,
+//           filled: true,
+//           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
+//     );
+//   }
+// }

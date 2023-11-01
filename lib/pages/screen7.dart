@@ -64,7 +64,7 @@ class _Contenido7State extends State<Contenido7> {
                     fontFamily: 'Otomanopee One',
                   ),
                   CustomText(
-                    title: 'Isabella Rodríguez',
+                    title: 'xxxxxxxxxxx xxxxxxxxxxx',
                     tam: 32,
                     color: 0XFF695C5C,
                     fontWeight: FontWeight.w500,
