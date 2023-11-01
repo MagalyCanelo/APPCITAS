@@ -26,7 +26,7 @@ class _CustomPassState extends State<CustomPass> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 28.0),
+      padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 22.0),
       child: TextField(
         keyboardType: widget.tipo,
         obscureText: _obscureText,

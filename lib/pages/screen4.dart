@@ -1,5 +1,7 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen5.dart';
+import 'package:app/widgets/custom_input.dart';
+import 'package:app/widgets/custom_pass.dart';
 import 'package:flutter/material.dart';
 
 class Screen4 extends StatefulWidget {
@@ -13,21 +15,29 @@ class _Screen4State extends State<Screen4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: const Color(0XFFF23574),
-        ),
-        drawer: const Drawer(child: Midrawer()),
-        body: SingleChildScrollView(
-          child: Center(
-              child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Image.asset('assets/img/corazon.jpg', width: 350, height: 95),
-                Image.asset('assets/img/letra.jpg', width: 350, height: 70),
-                const SizedBox(height: 10.0),
-                Row(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: const Color(0XFFF23574),
+      ),
+      drawer: const Drawer(child: Midrawer()),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 35.0, right: 20.0, left: 20.0, bottom: 5.0),
+                child: Image.asset('assets/img/corazon.jpg',
+                    width: 350, height: 95),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child:
+                    Image.asset('assets/img/letra.jpg', width: 350, height: 70),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0, left: 20.0),
+                child: Row(
                   children: [
                     Container(
                       color: const Color(0XFF9F51CA),
@@ -38,73 +48,76 @@ class _Screen4State extends State<Screen4> {
                     const Text(
                       "PERFIL",
                       style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Otomanopee One',
-                          color: Color(0XFF9F51CA)),
+                        fontSize: 26,
+                        fontFamily: 'Otomanopee One',
+                        color: Color(0XFF9F51CA),
+                      ),
                     ),
                   ],
                 ),
-                Row(
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => const Screen5())));
-                        },
-                        child: const Text(
-                          "Editar",
-                          style: TextStyle(
-                              color: Color(0XFF9F51CA),
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold),
-                        ))
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => const Screen5()),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        "Editar",
+                        style: TextStyle(
+                          color: Color(0XFF9F51CA),
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.0,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                const CajaTexto(tipo: TextInputType.number, title: "DNI"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(tipo: TextInputType.text, title: "Nombres"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(tipo: TextInputType.text, title: "Apellidos"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(tipo: TextInputType.number, title: "Celular"),
-                const SizedBox(height: 10.0),
-                const CajaTexto(
-                    tipo: TextInputType.emailAddress, title: "Correo"),
-                const SizedBox(height: 10.0),
-                TextField(
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                      labelText: "Contraseña",
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      suffixIcon: const Icon(Icons.remove_red_eye)),
-                )
-              ],
-            ),
-          )),
-        ));
-  }
-}
-
-class CajaTexto extends StatelessWidget {
-  final TextInputType tipo;
-  final String title;
-  const CajaTexto({super.key, required this.tipo, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: tipo,
-      decoration: InputDecoration(
-          labelText: title,
-          fillColor: Colors.white,
-          filled: true,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
+              ),
+              const CustomInput(
+                tipo: TextInputType.number,
+                title: 'DNI',
+              ),
+              const CustomInput(
+                tipo: TextInputType.text,
+                title: 'Nombres',
+              ),
+              const CustomInput(
+                tipo: TextInputType.text,
+                title: 'Apellidos',
+              ),
+              const CustomInput(
+                tipo: TextInputType.number,
+                title: 'Celular',
+              ),
+              const CustomInput(
+                tipo: TextInputType.emailAddress,
+                title: 'Correo',
+              ),
+              const CustomPass(
+                tipo: TextInputType.text,
+                hidden: true,
+                title: 'Contraseña',
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: const Color(0xFFF23574),
+        child: Container(
+          height: 8.0,
+        ),
+      ),
     );
   }
 }

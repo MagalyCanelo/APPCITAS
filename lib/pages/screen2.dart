@@ -1,4 +1,4 @@
-import 'package:app/pages/screen9.dart';
+import 'package:app/pages/screen1.dart';
 import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_pass.dart';
@@ -104,7 +104,7 @@ class _Contenido2State extends State<Contenido2> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Screen9(),
+                            builder: (context) => const Screen1(),
                           ),
                         );
                       },

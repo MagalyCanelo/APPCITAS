@@ -24,6 +24,7 @@ class Conocemos extends StatelessWidget {
       body: ListView(
         children: [
           titulocentral(),
+          const SizedBox(height: 8.0),
           const SubtitulosC(title: 'Conocenos'),
           textodescripcion(),
           imagen(),
@@ -32,18 +33,23 @@ class Conocemos extends StatelessWidget {
           imagenobstetra(),
           informacionobstetra(),
           divider(),
-          const SubtitulosC(title: 'Horario de \n Atención'),
+          const SubtitulosC(title: 'Horario de Atención'),
           horarioatencion(),
           divider(),
           const SubtitulosC(title: 'Contacto'),
           contacto(),
+          const SizedBox(height: 20.0),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: const Color(0xFFF23574),
+        child: Container(
+          height: 8.0,
+        ),
       ),
     );
   }
 }
-
-// Resto de tu código...
 
 void main() {
   runApp(const MaterialApp(
@@ -60,7 +66,7 @@ Widget titulocentral() {
         style: const TextStyle(
             fontFamily: 'Otomanopee One',
             color: Color(0xFF9F51CA),
-            fontSize: 25.0),
+            fontSize: 27.0),
       ),
       decoration: const BoxDecoration(
           border: Border(
@@ -68,18 +74,6 @@ Widget titulocentral() {
         color: Color(0xFF9F51CA),
         width: 5,
       ))));
-}
-
-Widget conocemos() {
-  return Center(
-    child: Container(
-      margin: const EdgeInsets.only(top: 10),
-      child: const Text(
-        "Conocenos",
-        style: TextStyle(fontFamily: 'Otomanopee One', fontSize: 23.0),
-      ),
-    ),
-  );
 }
 
 Widget textodescripcion() {
@@ -90,7 +84,11 @@ Widget textodescripcion() {
       "El Centro Ecográfico Reina Isabel es una destacada institución en el sector de la salud y la atención médica, especializada en medicina diagnóstica y servicios de imágenes médicas. ",
       textAlign: TextAlign.justify,
       style: TextStyle(
-          fontFamily: 'Montserrat', fontWeight: FontWeight.w400, fontSize: 15),
+        fontFamily: 'Montserrat',
+        fontWeight: FontWeight.w400,
+        fontSize: 15,
+        height: 1.3,
+      ),
     ),
   );
 }
@@ -99,7 +97,7 @@ Widget imagen() {
   return Container(
     margin: const EdgeInsets.only(left: 50, right: 50, top: 25),
     decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFFF23574), width: 8)),
+        border: Border.all(color: const Color(0xFFF23574), width: 6)),
     child: Image.asset("assets/img/conocenos.jpg"),
   );
 }
@@ -112,16 +110,6 @@ Widget divider() {
       height: 40,
       thickness: 2,
       indent: 20,
-    ),
-  );
-}
-
-Widget conoceanuestraobstetra() {
-  return const Center(
-    child: Text(
-      'Conoce a \n Nuestra Obstetra',
-      textAlign: TextAlign.center,
-      style: TextStyle(fontFamily: 'Otomanopee One', fontSize: 23.0),
     ),
   );
 }
@@ -258,20 +246,21 @@ Widget horarioatencion() {
         margin: const EdgeInsets.only(left: 70, top: 20),
         child: Row(
           children: [
-            SizedBox(
-                height: 60,
-                width: 60,
-                child: Image.asset("assets/img/reloj.png")),
+            SizedBox(height: 60, child: Image.asset("assets/img/reloj.png")),
             const SizedBox(width: 10),
             const Column(
               children: [
                 Text("Lunes a Sabado",
                     style: TextStyle(
-                        fontFamily: 'Montserrat', fontWeight: FontWeight.w700)),
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16)),
                 SizedBox(height: 5),
                 Text("    8:00 am - 6:00 pm",
                     style: TextStyle(
-                        fontFamily: 'Montserrat', fontWeight: FontWeight.w400))
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16))
               ],
             )
           ],
@@ -317,7 +306,7 @@ Widget contacto() {
       Container(
         margin: const EdgeInsets.only(left: 50, right: 50, top: 25),
         decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xFFF23574), width: 8)),
+            border: Border.all(color: const Color(0xFFF23574), width: 6)),
         child: Image.asset("assets/img/localizacion_ceri.jpg"),
       ),
       const SizedBox(

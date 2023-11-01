@@ -9,8 +9,8 @@ class CustomInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          vertical: 12.0,
-          horizontal: 28.0), // Ajusta el valor según tus necesidades
+          vertical: 9.0,
+          horizontal: 22.0), // Ajusta el valor según tus necesidades
       child: TextField(
         keyboardType: tipo,
         decoration: InputDecoration(

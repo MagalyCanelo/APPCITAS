@@ -14,7 +14,7 @@ class SubtitulosC extends StatelessWidget {
       title,
       textAlign: TextAlign.center,
       style: const TextStyle(
-        fontSize: 23.0,
+        fontSize: 26.0,
         fontFamily: 'Otomanopee One',
       ),
     );
