@@ -1,3 +1,4 @@
+import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen4.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class _Screen5State extends State<Screen5> {
         appBar: AppBar(
           backgroundColor: const Color(0XFFF23574),
         ),
-        drawer: const Drawer(),
+        drawer: const Drawer(child: Midrawer()),
         body: SingleChildScrollView(
           child: Center(
               child: Padding(
@@ -29,7 +30,7 @@ class _Screen5State extends State<Screen5> {
                 Row(
                   children: [
                     Container(
-                      color: Color(0XFF9F51CA),
+                      color: const Color(0XFF9F51CA),
                       width: 5.0,
                       height: 33.0,
                     ),

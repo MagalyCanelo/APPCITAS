@@ -1,3 +1,4 @@
+import 'package:app/pages/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Screen9 extends StatefulWidget {
@@ -15,7 +16,7 @@ class _Screen9State extends State<Screen9> {
       appBar: AppBar(
         backgroundColor: const Color(0XFFF23574),
       ),
-      drawer: const Drawer(),
+      drawer: const Drawer(child: Midrawer()),
       body: SingleChildScrollView(
           child: Center(
         child: Padding(

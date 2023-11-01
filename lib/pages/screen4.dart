@@ -1,12 +1,6 @@
+import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen5.dart';
 import 'package:flutter/material.dart';
-
-// class _Screen4State extends State<Screen4> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
 
 class Screen4 extends StatefulWidget {
   const Screen4({super.key});
@@ -23,7 +17,7 @@ class _Screen4State extends State<Screen4> {
         appBar: AppBar(
           backgroundColor: const Color(0XFFF23574),
         ),
-        drawer: const Drawer(),
+        drawer: const Drawer(child: Midrawer()),
         body: SingleChildScrollView(
           child: Center(
               child: Padding(

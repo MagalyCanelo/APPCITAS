@@ -15,15 +15,16 @@ class BotonDrawer extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: TextStyle(fontSize: 19),
+        style: const TextStyle(fontSize: 17),
       ),
-      leading: Image.asset(path, width: 35, height: 35),
+      leading: Image.asset(path, width: 30, height: 30),
       onTap: () {
-        // Navegación al tocar el elemento 1
         Navigator.of(context).pop(); // Cierra el Drawer
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => destino,
-        ));
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => destino,
+          ),
+        );
       },
     );
   }

@@ -1,3 +1,4 @@
+import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen1.dart';
 import 'package:app/widgets/custom_bottomc.dart';
 import 'package:app/widgets/custom_text.dart';
@@ -32,8 +33,7 @@ class _Contenido7State extends State<Contenido7> {
           IconButton(
             icon: Image.asset('assets/img/campana.png',
                 width: 25.0), // Agrega la imagen aquí
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
         leading: Builder(
@@ -47,6 +47,7 @@ class _Contenido7State extends State<Contenido7> {
           },
         ),
       ),
+      drawer: const Drawer(child: Midrawer()),
       body: Container(
         color: Colors.white,
         width: double.infinity,
@@ -93,7 +94,7 @@ class _Contenido7State extends State<Contenido7> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: const Color(0xFFF23574), 
+        color: const Color(0xFFF23574),
         child: Container(
           height: 8.0,
         ),

@@ -1,15 +1,13 @@
+import 'package:app/pages/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:proyecto/widgets/subtitulos_c.dart';
+import 'package:app/widgets/subtitulos_c.dart';
 
 class Screen3 extends StatelessWidget {
   const Screen3({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: "Conocenos",
-      home: Conocemos(),
-    );
+    return const Conocemos();
   }
 }
 
@@ -19,6 +17,10 @@ class Conocemos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0XFFF23574),
+      ),
+      drawer: const Drawer(child: Midrawer()),
       body: ListView(
         children: [
           titulocentral(),
@@ -39,6 +41,14 @@ class Conocemos extends StatelessWidget {
       ),
     );
   }
+}
+
+// Resto de tu código...
+
+void main() {
+  runApp(const MaterialApp(
+    home: Screen3(),
+  ));
 }
 
 Widget titulocentral() {

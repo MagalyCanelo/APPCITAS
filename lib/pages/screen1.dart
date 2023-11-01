@@ -1,11 +1,9 @@
-import 'package:app/pages/screen4.dart';
 import 'package:app/pages/screen9.dart';
 import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_pass.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:app/pages/screen2.dart';
 
 class Screen1 extends StatelessWidget {
   const Screen1({super.key});
@@ -94,7 +92,7 @@ class _Contenido1State extends State<Contenido1> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Screen4(),
+                              builder: (context) => const Screen9(),
                             ),
                           );
                         },
