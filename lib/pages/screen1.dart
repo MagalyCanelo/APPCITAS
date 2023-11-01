@@ -1,4 +1,5 @@
-import 'package:app/pages/screen7.dart';
+import 'package:app/pages/screen4.dart';
+import 'package:app/pages/screen9.dart';
 import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_pass.dart';
@@ -78,7 +79,7 @@ class _Contenido1State extends State<Contenido1> {
                       const CustomBottomS(
                         title: 'Ingresar',
                         tam: 20.0,
-                        destino: Screen7(),
+                        destino: Screen9(),
                       ),
                       TextButton(
                         style: ButtonStyle(
@@ -93,7 +94,7 @@ class _Contenido1State extends State<Contenido1> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Screen2(),
+                              builder: (context) => const Screen4(),
                             ),
                           );
                         },
