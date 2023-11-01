@@ -33,14 +33,13 @@ class _Contenido7State extends State<Contenido7> {
             icon: Image.asset('assets/img/campana.png',
                 width: 25.0), // Agrega la imagen aquí
             onPressed: () {
-              // Coloca aquí el código que se ejecutará cuando se presione la imagen
             },
           ),
         ],
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: const Icon(Icons.menu), // Icono del Drawer
+              icon: const Icon(Icons.menu),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
@@ -94,9 +93,9 @@ class _Contenido7State extends State<Contenido7> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: const Color(0xFFF23574), // Color rosado
+        color: const Color(0xFFF23574), 
         child: Container(
-          height: 8.0, // Altura de la línea
+          height: 8.0,
         ),
       ),
     );
