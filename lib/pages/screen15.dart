@@ -9,78 +9,84 @@ class Screen15 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: const Color(0XFFF23574),
-        ),
-        drawer: const Drawer(child: Midrawer()),
-        body: SingleChildScrollView(
-            child: Center(
-                child: Padding(
-                    padding: const EdgeInsets.all(25.0),
-                    child: Column(children: [
-                      Row(
-                        children: [
-                          Container(
-                            color: const Color(0xFF6E2794),
-                            width: 5.0,
-                            height: 40.0,
-                          ),
-                          const SizedBox(width: 10.0),
-                          const Text(
-                            "CANCELAR CITA",
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontFamily: 'Otomanopee One',
-                                color: Color(0XFF9F51CA)),
-                          ),
-                        ],
-                      ),
-                      Container(
-                          color: Colors.white,
-                          width: double.infinity,
-                          child: Column(children: [
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 75.0,
-                                    left: 20.0,
-                                    right: 20.0,
-                                    bottom: 55.0),
-                                child: Column(children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(bottom: 45.0),
-                                    child: Image.asset(
-                                      'assets/img/cancelar.png',
-                                      width: 150.0, // Ajustando el ancho aquí
-                                    ),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: const Color(0XFFF23574),
+      ),
+      drawer: const Drawer(child: Midrawer()),
+      body: SingleChildScrollView(
+          child: Center(
+              child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Column(children: [
+                    Row(
+                      children: [
+                        Container(
+                          color: const Color(0xFF6E2794),
+                          width: 5.0,
+                          height: 40.0,
+                        ),
+                        const SizedBox(width: 10.0),
+                        const Text(
+                          "CANCELAR CITA",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontFamily: 'Otomanopee One',
+                              color: Color(0XFF9F51CA)),
+                        ),
+                      ],
+                    ),
+                    Container(
+                        color: Colors.white,
+                        width: double.infinity,
+                        child: Column(children: [
+                          Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 75.0,
+                                  left: 20.0,
+                                  right: 20.0,
+                                  bottom: 55.0),
+                              child: Column(children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 45.0),
+                                  child: Image.asset(
+                                    'assets/img/cancelar.png',
+                                    width: 150.0, // Ajustando el ancho aquí
                                   ),
-                                  informacionC(
-                                      'Servicio: ', 'ECOGRAFIA TRANSVAGINAL'),
-                                  informacionC('Fecha: ', '29/09/23'),
-                                  informacionC('Hora: ', '03:00 pm'),
-                                  informacionC('Motivo: ', '_______________'),
-                                ])),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(),
-                              child: CustomBottomC(
-                                title: 'Enviar',
-                                path: 'assets/img/check.png',
-                                tam: 20.0,
-                                destino: Screen0(),
-                              ),
+                                ),
+                                informacionC(
+                                    'Servicio: ', 'ECOGRAFIA TRANSVAGINAL'),
+                                informacionC('Fecha: ', '29/09/23'),
+                                informacionC('Hora: ', '03:00 pm'),
+                                informacionC('Motivo: ', '_______________'),
+                              ])),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(),
+                            child: CustomBottomC(
+                              title: 'Enviar',
+                              path: 'assets/img/check.png',
+                              tam: 20.0,
+                              destino: Screen0(),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(),
-                              child: CustomBottomC(
-                                title: 'Cancelar',
-                                path: 'assets/img/x.png',
-                                tam: 20.0,
-                                destino: Screen0(),
-                              ),
-                            )
-                          ]))
-                    ])))));
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(),
+                            child: CustomBottomC(
+                              title: 'Cancelar',
+                              path: 'assets/img/x.png',
+                              tam: 20.0,
+                              destino: Screen0(),
+                            ),
+                          )
+                        ]))
+                  ])))),
+      bottomNavigationBar: BottomAppBar(
+        color: const Color(0xFFF23574),
+        child: Container(
+          height: 8.0,
+        ),
+      ),
+    );
   }
 }
 

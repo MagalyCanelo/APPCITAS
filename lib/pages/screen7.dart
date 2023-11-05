@@ -1,5 +1,6 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen1.dart';
+import 'package:app/pages/screen8.dart';
 import 'package:app/widgets/custom_bottomc.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +32,11 @@ class _Contenido7State extends State<Contenido7> {
         backgroundColor: const Color(0xFFF23574),
         actions: <Widget>[
           IconButton(
-            icon: Image.asset('assets/img/campana.png',
-                width: 25.0), // Agrega la imagen aquí
-            onPressed: () {},
+            icon: Image.asset('assets/img/campana.png', width: 25.0),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Screen8()));
+            },
           ),
         ],
         leading: Builder(
