@@ -1,7 +1,8 @@
+import 'package:app/pages/screen15.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_text.dart';
-import 'package:app/pages/screen1.dart';
+// import 'package:app/pages/screen1.dart';
 
 class Screen0 extends StatelessWidget {
   const Screen0({super.key});
@@ -79,7 +80,7 @@ class _Contenido0State extends State<Contenido0> {
                       const CustomBottomS(
                         title: 'Empezar',
                         tam: 23.0,
-                        destino: Screen1(),
+                        destino: Screen15(),
                       )
                     ],
                   )

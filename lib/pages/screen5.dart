@@ -112,21 +112,3 @@ class _Screen5State extends State<Screen5> {
     );
   }
 }
-
-// class CajaTexto extends StatelessWidget {
-//   final TextInputType tipo;
-//   final String title;
-//   const CajaTexto({super.key, required this.tipo, required this.title});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextField(
-//       keyboardType: tipo,
-//       decoration: InputDecoration(
-//           labelText: title,
-//           fillColor: Colors.white,
-//           filled: true,
-//           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
-//     );
-//   }
-// }

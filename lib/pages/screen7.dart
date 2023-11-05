@@ -64,7 +64,7 @@ class _Contenido7State extends State<Contenido7> {
                     fontFamily: 'Otomanopee One',
                   ),
                   CustomText(
-                    title: 'xxxxxxxxxxx xxxxxxxxxxx',
+                    title: 'xxxxxx xxxxxx',
                     tam: 32,
                     color: 0XFF695C5C,
                     fontWeight: FontWeight.w500,

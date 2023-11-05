@@ -22,10 +22,10 @@ class CustomBottomC extends StatelessWidget {
                   MaterialStateProperty.all<Color>(const Color(0xFF9F51CA)),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
               padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                const EdgeInsets.symmetric(vertical: 12.0),
+                const EdgeInsets.symmetric(vertical: 10.0),
               ),
               fixedSize: MaterialStateProperty.all<Size>(
-                const Size(250.0, 50.0), // Ancho predeterminado de 200.0
+                const Size(250.0, 45.0),
               ),
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
