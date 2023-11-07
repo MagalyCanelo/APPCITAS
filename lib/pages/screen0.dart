@@ -1,4 +1,4 @@
-import 'package:app/pages/screen15.dart';
+import 'package:app/pages/screen8.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_text.dart';
@@ -80,7 +80,7 @@ class _Contenido0State extends State<Contenido0> {
                       const CustomBottomS(
                         title: 'Empezar',
                         tam: 23.0,
-                        destino: Screen15(),
+                        destino: Screen8(),
                       )
                     ],
                   )

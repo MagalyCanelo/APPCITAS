@@ -104,25 +104,26 @@ String mayusculaP(String text) {
 Widget informacionC(String texto1, String texto2) {
   texto2 = mayusculaP(texto2);
   return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text(
-                texto1,
-                style: const TextStyle(
-                  fontSize: 19,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.bold,
-                ),
+    padding: const EdgeInsets.symmetric(vertical: 5.0),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              texto1,
+              style: const TextStyle(
+                fontSize: 19,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.bold,
               ),
-              Text(
-                texto2,
-                style: const TextStyle(fontSize: 19, fontFamily: 'Montserrat'),
-              ),
-            ],
-          ),
-        ],
-      ));
+            ),
+            Text(
+              texto2,
+              style: const TextStyle(fontSize: 19, fontFamily: 'Montserrat'),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
 }
