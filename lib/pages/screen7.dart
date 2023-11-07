@@ -39,16 +39,6 @@ class _Contenido7State extends State<Contenido7> {
             },
           ),
         ],
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
-        ),
       ),
       drawer: const Drawer(child: Midrawer()),
       body: Container(

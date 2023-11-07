@@ -1,4 +1,4 @@
-import 'package:app/pages/screen8.dart';
+import 'package:app/pages/screen1.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_text.dart';
@@ -10,6 +10,7 @@ class Screen0 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Reina Isabel",
       home: Contenido0(),
     );
@@ -80,7 +81,7 @@ class _Contenido0State extends State<Contenido0> {
                       const CustomBottomS(
                         title: 'Empezar',
                         tam: 23.0,
-                        destino: Screen8(),
+                        destino: Screen1(),
                       )
                     ],
                   )
