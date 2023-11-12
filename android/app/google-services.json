@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1019713750192",
+    "project_id": "reinaisabel-b5e91",
+    "storage_bucket": "reinaisabel-b5e91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019713750192:android:76a390fb3ca7dc1cb1a775",
+        "android_client_info": {
+          "package_name": "com.reinaisabel.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB91geesY5mKUXrYMTDMEPrScJVTJbBylQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
