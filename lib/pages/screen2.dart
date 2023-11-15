@@ -1,7 +1,8 @@
 import 'package:app/pages/screen1.dart';
-import 'package:app/widgets/custom_bottoms.dart';
+import 'package:app/services/firebase_services.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_pass.dart';
+import 'package:app/widgets/custom_registro.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,13 @@ class Contenido2 extends StatefulWidget {
 }
 
 class _Contenido2State extends State<Contenido2> {
+  TextEditingController dniController = TextEditingController(text: "");
+  TextEditingController nomController = TextEditingController(text: "");
+  TextEditingController apeController = TextEditingController(text: "");
+  TextEditingController celController = TextEditingController(text: "");
+  TextEditingController correoController = TextEditingController(text: "");
+  TextEditingController contraController = TextEditingController(text: "");
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -63,35 +71,53 @@ class _Contenido2State extends State<Contenido2> {
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Otomanopee One',
                         )),
-                    const CustomInput(
+                    CustomInput(
+                      control: dniController,
                       tipo: TextInputType.number,
                       title: 'DNI',
                     ),
-                    const CustomInput(
+                    CustomInput(
+                      control: nomController,
                       tipo: TextInputType.text,
                       title: 'Nombres',
                     ),
-                    const CustomInput(
+                    CustomInput(
+                      control: apeController,
                       tipo: TextInputType.text,
                       title: 'Apellidos',
                     ),
-                    const CustomInput(
+                    CustomInput(
+                      control: celController,
                       tipo: TextInputType.number,
                       title: 'Celular',
                     ),
-                    const CustomInput(
+                    CustomInput(
+                      control: correoController,
                       tipo: TextInputType.emailAddress,
                       title: 'Correo',
                     ),
-                    const CustomPass(
+                    CustomPass(
+                      control: contraController,
                       tipo: TextInputType.text,
                       hidden: true,
                       title: 'Contraseña',
                     ),
-                    const CustomBottomS(
+                    CustomRegistro(
                       title: 'Crear Cuenta',
                       tam: 20.0,
-                      destino: Screen1(),
+                      destino:
+                          const Screen1(), // Reemplaza NextPage() con tu destino real
+                      add: () async {
+                        // Lógica que retorna un Future<void>
+                        await addCuenta(
+                          dniController.text,
+                          nomController.text,
+                          apeController.text,
+                          celController.text,
+                          correoController.text,
+                          contraController.text,
+                        );
+                      },
                     ),
                     TextButton(
                       style: ButtonStyle(
@@ -101,7 +127,7 @@ class _Contenido2State extends State<Contenido2> {
                           const EdgeInsets.all(16.0),
                         ),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         Navigator.push(
                           context,
                           MaterialPageRoute(

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomPass extends StatefulWidget {
+  final TextEditingController control;
   final TextInputType tipo;
   final bool hidden;
   final String title;
   const CustomPass(
       {super.key,
+      required this.control,
       required this.tipo,
       required this.hidden,
       required this.title});
@@ -28,6 +30,7 @@ class _CustomPassState extends State<CustomPass> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 22.0),
       child: TextField(
+        controller: widget.control,
         keyboardType: widget.tipo,
         obscureText: _obscureText,
         decoration: InputDecoration(
