@@ -1,132 +1,171 @@
 import 'package:flutter/material.dart';
 
 class CustomContainerDesplegable extends StatefulWidget {
-  final String path;
-  final String title;
-  final String descripcion1;
-  final String descripcion2;
-  final String descripcion3;
+  final String ruta;
+  final String titulo;
 
   const CustomContainerDesplegable(
     {
       super.key,
-      required this.path,
-      required this.title,
-      required this.descripcion1,
-      required this.descripcion2,
-      required this.descripcion3
+      required this.ruta,
+      required this.titulo
     }
   );
 
   @override
-  State<CustomContainerDesplegable> createState() => _CustomContainerDesplegableState();
+  State<CustomContainerDesplegable> createState() =>
+      _CustomContainerDesplegableState();
 }
 
-class _CustomContainerDesplegableState extends State<CustomContainerDesplegable> {
-  bool showMessage = false;
-
-  void toggleMessage() {
-    setState(() {
-      showMessage = !showMessage;
-    });
-  }
+class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
+    with TickerProviderStateMixin {
+  bool expanded = false;
+  final double initialHeight = 220.0;
+  final double expandedHeight = 385.0;
+  final double borderRadius = 10.0;
+  final double imageBorderRadius = 5.0;
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 233,
-              decoration: BoxDecoration(
-                color: const Color(0XFFFFF1F1),
-                borderRadius: BorderRadius.circular(5.0),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5.0,
-                    spreadRadius: 1.0,
-                    offset: Offset(0, 5)
-                  )
-                ]
+      child: AnimatedContainer(
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+        height: expanded ? expandedHeight : initialHeight,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: const Color(0XFFFFF1F1),
+          borderRadius: BorderRadius.circular(borderRadius),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2.0,
+              blurRadius: 5.0,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Positioned(
+                top: 10.0,
+                left: 10.0,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(imageBorderRadius),
+                  child: Image.asset(
+                    widget.ruta,
+                    width: double.infinity,
+                    height: 150.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(5.0),
-                    child: Image.asset(
-                      widget.path,
-                      height: 160.0,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+              const SizedBox(height: 10.0),
+              Positioned(
+                bottom: 40.0,
+                left: 10.0,
+                right: 10.0,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.titulo,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat',
+                          ),
+                        ),
+                        const SizedBox(width: 20.0),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            setState(() {
+                              expanded = !expanded;
+                            });
+                          },
+                          icon: Icon(
+                            expanded
+                                ? Icons.arrow_drop_up
+                                : Icons.arrow_drop_down,
+                            size: 24.0,
+                          ),
+                          label: Text(expanded ? '' : ''),
+                          style: ElevatedButton.styleFrom(
+                            alignment: Alignment.center,
+                            backgroundColor: const Color(0xFF9F51CA),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  const SizedBox(height: 3.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        widget.title,
-                        style: const TextStyle(
-                          fontFamily: '',
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w600
-                        ),
-                      ),
-                      const SizedBox(width: 5.0),
-                      ElevatedButton(
-                        onPressed: toggleMessage, 
-                        child: Icon(Icons.arrow_forward_ios_outlined),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0XFF9F51CA)
-                        ),
-                      ),
-                    ],
-                  ),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    height: showMessage ? 80.0 : 0.0,
-                    child: showMessage ? 
-                    Center(
-                      child: Column(
+                    Visibility(
+                      visible: expanded,
+                      child: const Column(
                         children: [
-                          const Text(
+                          SizedBox(height: 7.0),
+                          Text(
                             'Incluye:',
                             style: TextStyle(
-                              fontWeight: FontWeight.bold
-                            )
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat',
+                            ),
                           ),
-                          const SizedBox(height: 5.0),
+                          SizedBox(height: 3.0),
                           Text(
-                            widget.descripcion1,
-                            style: const TextStyle(
-                              fontFamily: 'Montserrat'
-                            )
+                            '1. Historia Clínico Electrónica',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontFamily: 'Montserrat',
+                            ),
                           ),
+                          SizedBox(height: 3.0),
                           Text(
-                            widget.descripcion2,
-                            style: const TextStyle(
-                              fontFamily: 'Montserrat'
-                            )
+                            '2. Evaluación Materna y Fetal',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontFamily: 'Montserrat',
+                            ),
                           ),
+                          SizedBox(height: 3.0),
                           Text(
-                            widget.descripcion3,
-                            style: const TextStyle(
-                              fontFamily: 'Montserrat'
-                            )
+                            '3. Control Ecográfico Básico',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontFamily: 'Montserrat',
+                            ),
                           ),
+                          SizedBox(height: 15.0),
                         ],
                       ),
-                    )
-                    :null,
-                  )
-                ],
+                    ),
+                  ],
+                ),
               ),
-            )
-          ],
+              Positioned(
+                bottom: 10.0,
+                left: 10.0,
+                right: 10.0,
+                child: Visibility(
+                  visible: expanded,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF9F51CA),
+                      fixedSize: const Size(200.0, 36.0),
+                    ),
+                    child: const Text(
+                      'Reservar',
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
