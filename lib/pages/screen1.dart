@@ -27,9 +27,11 @@ class Contenido1 extends StatefulWidget {
 }
 
 class _Contenido1State extends State<Contenido1> {
+  TextEditingController correoController = TextEditingController(text: "");
+  TextEditingController contraController = TextEditingController(text: "");
+
   @override
   Widget build(BuildContext context) {
-    // Obtener información sobre la pantalla actual
     final mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
@@ -67,11 +69,13 @@ class _Contenido1State extends State<Contenido1> {
                           fontFamily: 'Otomanopee One',
                         ),
                       ),
-                      const CustomInput(
+                      CustomInput(
+                        control: correoController,
                         tipo: TextInputType.emailAddress,
                         title: 'Correo',
                       ),
-                      const CustomPass(
+                      CustomPass(
+                        control: contraController,
                         tipo: TextInputType.text,
                         hidden: true,
                         title: 'Contraseña',
