@@ -1,6 +1,7 @@
 import 'package:app/pages/screen1.dart';
 import 'package:app/services/firebase_services.dart';
 import 'package:app/widgets/custom_input.dart';
+import 'package:app/widgets/custom_input_max.dart';
 import 'package:app/widgets/custom_pass.dart';
 import 'package:app/widgets/custom_registro.dart';
 import 'package:app/widgets/custom_text.dart';
@@ -71,9 +72,10 @@ class _Contenido2State extends State<Contenido2> {
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Otomanopee One',
                         )),
-                    CustomInput(
+                    CustomInputMax(
                       control: dniController,
                       tipo: TextInputType.number,
+                      max: 8,
                       title: 'DNI',
                     ),
                     CustomInput(
@@ -86,9 +88,10 @@ class _Contenido2State extends State<Contenido2> {
                       tipo: TextInputType.text,
                       title: 'Apellidos',
                     ),
-                    CustomInput(
+                    CustomInputMax(
                       control: celController,
                       tipo: TextInputType.number,
+                      max: 9,
                       title: 'Celular',
                     ),
                     CustomInput(
