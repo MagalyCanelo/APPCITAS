@@ -1,9 +1,10 @@
 import 'package:app/pages/screen2.dart';
 import 'package:app/pages/screen3.dart';
-import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_pass.dart';
 import 'package:app/widgets/custom_text.dart';
+import 'package:app/widgets/custom_validacion.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatelessWidget {
@@ -29,6 +30,45 @@ class Contenido1 extends StatefulWidget {
 class _Contenido1State extends State<Contenido1> {
   TextEditingController correoController = TextEditingController(text: "");
   TextEditingController contraController = TextEditingController(text: "");
+
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<void> _signInWithEmailAndPassword() async {
+    String correo = correoController.text.trim();
+    String contra = contraController.text;
+
+    try {
+      QuerySnapshot<Map<String, dynamic>> querySnapshot = await _firestore
+          .collection('cuenta')
+          .where('correo', isEqualTo: correo)
+          .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        var user = querySnapshot.docs[0];
+
+        if (user['contra'] == contra) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Screen3()),
+          );
+        } else {
+          _showSnackBar('Contraseña incorrecta');
+        }
+      } else {
+        _showSnackBar('Usuario no encontrado');
+      }
+    } catch (e) {
+      _showSnackBar('Error de inicio de sesión');
+    }
+  }
+
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,10 +120,10 @@ class _Contenido1State extends State<Contenido1> {
                         hidden: true,
                         title: 'Contraseña',
                       ),
-                      const CustomBottomS(
+                      CustomValidacion(
                         title: 'Ingresar',
                         tam: 20.0,
-                        destino: Screen3(),
+                        onPressed: _signInWithEmailAndPassword,
                       ),
                       TextButton(
                         style: ButtonStyle(
