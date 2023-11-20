@@ -5,12 +5,7 @@ class CustomContainerDesplegable extends StatefulWidget {
   final String titulo;
 
   const CustomContainerDesplegable(
-    {
-      super.key,
-      required this.ruta,
-      required this.titulo
-    }
-  );
+      {super.key, required this.ruta, required this.titulo});
 
   @override
   State<CustomContainerDesplegable> createState() =>
@@ -81,22 +76,26 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           ),
                         ),
                         const SizedBox(width: 20.0),
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            setState(() {
-                              expanded = !expanded;
-                            });
-                          },
-                          icon: Icon(
-                            expanded
-                                ? Icons.arrow_drop_up
-                                : Icons.arrow_drop_down,
-                            size: 24.0,
-                          ),
-                          label: Text(expanded ? '' : ''),
-                          style: ElevatedButton.styleFrom(
-                            alignment: Alignment.center,
-                            backgroundColor: const Color(0xFF9F51CA),
+                        Align(
+                          alignment: Alignment.center,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              setState(() {
+                                expanded = !expanded;
+                              });
+                            },
+                            icon: Icon(
+                              expanded
+                                  ? Icons.arrow_drop_up
+                                  : Icons.arrow_drop_down,
+                              size: 24.0,
+                            ),
+                            label: Text(expanded ? '' : ''),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF9F51CA),
+                              padding: EdgeInsets.zero,
+                              fixedSize: const Size(0.0, 36.0),
+                            ),
                           ),
                         ),
                       ],
@@ -109,7 +108,7 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           Text(
                             'Incluye:',
                             style: TextStyle(
-                              fontSize: 16.0,
+                              fontSize: 13.0,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Montserrat',
                             ),
@@ -118,7 +117,7 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           Text(
                             '1. Historia Clínico Electrónica',
                             style: TextStyle(
-                              fontSize: 16.0,
+                              fontSize: 13.0,
                               fontFamily: 'Montserrat',
                             ),
                           ),
@@ -126,7 +125,7 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           Text(
                             '2. Evaluación Materna y Fetal',
                             style: TextStyle(
-                              fontSize: 16.0,
+                              fontSize: 13.0,
                               fontFamily: 'Montserrat',
                             ),
                           ),
@@ -134,7 +133,7 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           Text(
                             '3. Control Ecográfico Básico',
                             style: TextStyle(
-                              fontSize: 16.0,
+                              fontSize: 13.0,
                               fontFamily: 'Montserrat',
                             ),
                           ),
@@ -152,7 +151,14 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                 child: Visibility(
                   visible: expanded,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Screen6(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF9F51CA),
                       fixedSize: const Size(200.0, 36.0),
