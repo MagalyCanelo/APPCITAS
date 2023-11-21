@@ -21,7 +21,7 @@ class CustomValidacion extends StatelessWidget {
               MaterialStateProperty.all<Color>(const Color(0xFF9F51CA)),
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-            const EdgeInsets.symmetric(vertical: 12.0, horizontal: 60.0),
+            const EdgeInsets.symmetric(vertical: 11.0, horizontal: 60.0),
           ),
         ),
         child: Text(

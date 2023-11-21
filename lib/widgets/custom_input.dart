@@ -13,18 +13,20 @@ class CustomInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          vertical: 9.0,
-          horizontal: 22.0), // Ajusta el valor según tus necesidades
-      child: TextField(
-        controller: control,
-        keyboardType: tipo,
-        decoration: InputDecoration(
-          labelText: title,
-          fillColor: Colors.white,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
+      padding: const EdgeInsets.symmetric(vertical: 7.0, horizontal: 20.0),
+      child: SizedBox(
+        width: double.infinity,
+        height: 55.0,
+        child: TextField(
+          controller: control,
+          keyboardType: tipo,
+          decoration: InputDecoration(
+            labelText: title,
+            fillColor: Colors.white,
+            filled: true,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
           ),
         ),
       ),

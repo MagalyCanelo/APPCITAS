@@ -103,7 +103,7 @@ class _Contenido1State extends State<Contenido1> {
                         padding: EdgeInsets.symmetric(vertical: 18.0),
                         child: CustomText(
                           title: 'Bienvenido(a)',
-                          tam: 35,
+                          tam: 34,
                           color: 0XFF695C5C,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Otomanopee One',

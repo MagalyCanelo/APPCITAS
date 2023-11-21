@@ -28,6 +28,38 @@ class _CustomPassState extends State<CustomPass> {
   @override
   Widget build(BuildContext context) {
     return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 7.0, horizontal: 20.0),
+      child: SizedBox(
+        width: double.infinity,
+        height: 55.0,
+        child: TextField(
+          controller: widget.control,
+          keyboardType: widget.tipo,
+          obscureText: _obscureText,
+          decoration: InputDecoration(
+            labelText: widget.title,
+            fillColor: Colors.white,
+            filled: true,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            suffixIcon: IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText;
+                });
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+    /*
+    return Padding(
       padding: const EdgeInsets.symmetric(vertical: 9.0, horizontal: 22.0),
       child: TextField(
         controller: widget.control,
@@ -53,6 +85,6 @@ class _CustomPassState extends State<CustomPass> {
           ),
         ),
       ),
-    );
+    );*/
   }
 }

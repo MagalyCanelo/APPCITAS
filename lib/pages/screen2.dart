@@ -46,8 +46,8 @@ class _Contenido2State extends State<Contenido2> {
           width: double.infinity,
           child: Padding(
             padding: EdgeInsets.only(
-              top: mediaQuery.padding.top + 15.0,
-              bottom: mediaQuery.padding.bottom + 20.0,
+              top: mediaQuery.padding.top + 26.0,
+              bottom: mediaQuery.padding.bottom + 16.0,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +67,7 @@ class _Contenido2State extends State<Contenido2> {
                         padding: EdgeInsets.symmetric(vertical: 18.0),
                         child: CustomText(
                           title: 'Crear Nueva Cuenta',
-                          tam: 30,
+                          tam: 29,
                           color: 0XFF695C5C,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Otomanopee One',
@@ -127,7 +127,7 @@ class _Contenido2State extends State<Contenido2> {
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
                         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                          const EdgeInsets.all(16.0),
+                          const EdgeInsets.all(10.0),
                         ),
                       ),
                       onPressed: () async {
