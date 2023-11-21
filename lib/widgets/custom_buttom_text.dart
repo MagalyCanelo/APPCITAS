@@ -9,8 +9,7 @@ class CustomButtomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          horizontal: 8.0,
-          vertical: 3.0), // Puedes ajustar el valor según sea necesario
+          horizontal: 8.0), // Puedes ajustar el valor según sea necesario
       child: Align(
         alignment: Alignment.topLeft,
         child: TextButton(

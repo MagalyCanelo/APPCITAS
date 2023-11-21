@@ -1,3 +1,4 @@
+import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen4.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_input_max.dart';
@@ -40,7 +41,9 @@ class _Contenido5State extends State<Contenido5> {
       appBar: AppBar(
         backgroundColor: const Color(0XFFF23574),
       ),
-      drawer: const Drawer(),
+      drawer: const Drawer(
+        child: Midrawer(),
+      ),
       body: SingleChildScrollView(
           child: Container(
               color: Colors.white,

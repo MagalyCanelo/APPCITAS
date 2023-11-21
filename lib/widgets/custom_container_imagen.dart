@@ -1,3 +1,4 @@
+import 'package:app/pages/screen10.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainerImage extends StatelessWidget {
@@ -8,15 +9,12 @@ class CustomContainerImage extends StatelessWidget {
   final String descripcion;
 
   const CustomContainerImage(
-    {
-      super.key,
+      {super.key,
       required this.tamanioContainer,
       required this.direccion,
       required this.titulo,
       required this.altoImagen,
-      required this.descripcion
-    }
-  );
+      required this.descripcion});
 
   @override
   Widget build(BuildContext context) {
@@ -24,32 +22,30 @@ class CustomContainerImage extends StatelessWidget {
       width: double.infinity,
       height: tamanioContainer,
       decoration: BoxDecoration(
-        color: const Color(0XFFFFF1F1),
-        borderRadius: BorderRadius.circular(5.0),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 5.0,
-            spreadRadius: 1.0,
-            offset: Offset(0, 5)
-          )
-        ]
-      ),
+          color: const Color(0XFFFFF1F1),
+          borderRadius: BorderRadius.circular(5.0),
+          boxShadow: const [
+            BoxShadow(
+                color: Colors.grey,
+                blurRadius: 5.0,
+                spreadRadius: 1.0,
+                offset: Offset(0, 5))
+          ]),
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(
-              top: Radius.circular(5.0)
-            ),
-            child: Image.asset(direccion,
-            height: altoImagen, 
-            width: double.infinity,
-            fit: BoxFit.cover,
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(5.0)),
+            child: Image.asset(
+              direccion,
+              height: altoImagen,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
           ),
           Container(
             width: double.infinity,
-            height: 29.0,
+            height: 29.8,
             color: const Color(0XFFF23574),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -57,40 +53,41 @@ class CustomContainerImage extends StatelessWidget {
                 Text(
                   titulo,
                   style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontFamily: 'Montserrat'
-                  ),
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      fontSize: 15.7,
+                      fontFamily: 'Montserrat'),
                 )
               ],
             ),
           ),
-          const SizedBox(height: 12.0),
+          const SizedBox(height: 11.5),
           Container(
             alignment: Alignment.center,
-            width: 266.0,
+            width: 330.0,
             child: Text(
               descripcion,
               style: const TextStyle(
                 fontFamily: 'Montserrat',
-                fontSize: 12,
+                fontSize: 12.8,
               ),
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 8.0),
           ElevatedButton.icon(
-            onPressed: () {}, 
-            icon: const Icon(
-              Icons.calendar_month
-            ),
-            label: const Text(
-              'Agendar Cita'
-            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Screen10(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.calendar_month),
+            label: const Text('Agendar Cita'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF9F51CA)
-            ),
+                backgroundColor: const Color(0xFF9F51CA)),
           )
         ],
       ),

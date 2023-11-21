@@ -37,7 +37,7 @@ class Screen6 extends StatelessWidget {
                 ),
                 const SizedBox(height: 20.0),
                 const CustomContainerImage(
-                    tamanioContainer: 300.0,
+                    tamanioContainer: 290.0,
                     direccion: 'assets/img/ecografiaObstetrica.jpg',
                     titulo: 'Ecografías Obstetricas',
                     altoImagen: 129.0,
@@ -45,7 +45,7 @@ class Screen6 extends StatelessWidget {
                         'Examen clínico que resulta útil para establecer la presencia de un embrión/feto con vida y estimar el tiempo de gestación del embarazo.'),
                 const SizedBox(height: 20.0),
                 const CustomContainerImage(
-                    tamanioContainer: 300.0,
+                    tamanioContainer: 290.0,
                     direccion: 'assets/img/ecografiaTransvaginal.jpg',
                     titulo: 'Ecografías Transvaginales',
                     altoImagen: 129.0,
@@ -53,7 +53,7 @@ class Screen6 extends StatelessWidget {
                         'Evalúa los órganos reproductores femeninos, además detecta el desarrollo del feto en el útero en una etapa más temprana.'),
                 const SizedBox(height: 20.0),
                 const CustomContainerImage(
-                    tamanioContainer: 300.0,
+                    tamanioContainer: 290.0,
                     direccion: 'assets/img/ecografiaObstetrica.jpg',
                     titulo: 'Control Penatral',
                     altoImagen: 129.0,

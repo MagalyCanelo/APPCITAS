@@ -1,3 +1,4 @@
+import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen9.dart';
 import 'package:app/pages/screen11.dart';
 import 'package:app/widgets/custom_bottom_selected.dart';
@@ -17,7 +18,9 @@ class Screen10 extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: const Color(0XFFF23574),
         ),
-        drawer: const Drawer(),
+        drawer: const Drawer(
+          child: Midrawer(),
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 10.0),
           child: Column(

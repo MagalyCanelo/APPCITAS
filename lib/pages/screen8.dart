@@ -1,5 +1,9 @@
 import 'package:app/pages/drawer.dart';
+import 'package:app/pages/screen7.dart';
 import 'package:app/services/noti_services.dart';
+import 'package:app/widgets/custom_buttom_text.dart';
+import 'package:app/widgets/custom_text.dart';
+import 'package:app/widgets/fondo_r.dart';
 // import 'package:app/widgets/fondo_r.dart';
 import 'package:flutter/material.dart';
 
@@ -14,27 +18,32 @@ class Screen8 extends StatelessWidget {
           backgroundColor: const Color(0XFFF23574),
         ),
         drawer: const Drawer(child: Midrawer()),
-        body: const BotonNoti(),
-        /*SingleChildScrollView(
+        body: SingleChildScrollView(
             child: Padding(
-                padding: const EdgeInsets.all(25.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 2.0, vertical: 6.0),
                 child: Column(children: [
-                  Row(
-                    children: [
-                      Container(
-                        color: const Color(0xFF6E2794),
-                        width: 5.0,
-                        height: 40.0,
-                      ),
-                      const SizedBox(width: 10.0),
-                      const Text(
-                        "NOTIFICACIONES",
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontFamily: 'Otomanopee One',
-                            color: Color(0XFF9F51CA)),
-                      ),
-                    ],
+                  const Row(
+                    children: [CustomButtomText(destino: Screen7())],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          color: const Color(0xFF6E2794),
+                          width: 5.0,
+                          height: 40.0,
+                        ),
+                        const SizedBox(width: 10.0),
+                        const CustomText(
+                            title: 'NOTIFICACIONES',
+                            tam: 29,
+                            color: 0XFF9F51CA,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'Otomanopee One')
+                      ],
+                    ),
                   ),
                   Container(
                     color: Colors.white,
@@ -43,13 +52,15 @@ class Screen8 extends StatelessWidget {
                         contenido: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(
-                              8.0), // Ajusta el valor según tus preferencias
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                              vertical:
+                                  8.0), // Ajusta el valor según tus preferencias
                           child: Image.asset('assets/img/notificacion.png',
                               height: 50),
                         ),
                         Container(
-                          width: 2.0,
+                          width: 1.8,
                           height: 55.0,
                           color: const Color(0XFF413D3D),
                           margin: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -58,7 +69,9 @@ class Screen8 extends StatelessWidget {
                       ],
                     )),
                   ),
-                ])))*/
+                  const SizedBox(height: 20.0),
+                  const BotonNoti(),
+                ]))),
         bottomNavigationBar: BottomAppBar(
           color: const Color(0xFFF23574),
           child: Container(
@@ -70,7 +83,7 @@ class Screen8 extends StatelessWidget {
 
 Widget noti(String texto1) {
   return Padding(
-    padding: const EdgeInsets.all(5.0),
+    padding: const EdgeInsets.all(12.0),
     child: Column(
       children: [
         const Text(

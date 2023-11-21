@@ -1,3 +1,4 @@
+import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen7.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/Custom_bottoms.dart';
@@ -22,7 +23,9 @@ class Citareservada extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(backgroundColor: const Color(0XFFF23574)),
-      drawer: const Drawer(),
+      drawer: const Drawer(
+        child: Midrawer(),
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(

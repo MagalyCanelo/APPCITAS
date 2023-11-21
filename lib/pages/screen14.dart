@@ -1,3 +1,4 @@
+import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen15.dart';
 import 'package:app/pages/screen7.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
@@ -28,7 +29,9 @@ class Descripcion extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(backgroundColor: const Color(0XFFF23574)),
-        drawer: const Drawer(),
+        drawer: const Drawer(
+          child: Midrawer(),
+        ),
         body: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 10.0),
