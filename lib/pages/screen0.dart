@@ -36,7 +36,7 @@ class _Contenido0State extends State<Contenido0> {
             color: Colors.white,
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 45.0),
+              padding: const EdgeInsets.only(top: 62.0, bottom: 40.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
