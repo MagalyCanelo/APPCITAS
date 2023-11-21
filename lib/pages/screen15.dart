@@ -1,6 +1,9 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen0.dart';
+import 'package:app/pages/screen14.dart';
 import 'package:app/widgets/custom_bottomc.dart';
+import 'package:app/widgets/custom_buttom_text.dart';
+import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class Screen15 extends StatelessWidget {
@@ -17,24 +20,35 @@ class Screen15 extends StatelessWidget {
       body: SingleChildScrollView(
           child: Center(
               child: Padding(
-                  padding: const EdgeInsets.all(25.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 2.0, vertical: 10.0),
                   child: Column(children: [
-                    Row(
-                      children: [
-                        Container(
-                          color: const Color(0xFF6E2794),
-                          width: 5.0,
-                          height: 40.0,
-                        ),
-                        const SizedBox(width: 10.0),
-                        const Text(
-                          "CANCELAR CITA",
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontFamily: 'Otomanopee One',
-                              color: Color(0XFF9F51CA)),
-                        ),
-                      ],
+                    const Row(
+                      children: [CustomButtomText(destino: Screen14())],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 0.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                color: const Color(0xFF6E2794),
+                                width: 5.0,
+                                height: 40.0,
+                              ),
+                              const SizedBox(width: 10.0),
+                              const CustomText(
+                                  title: 'DETALLES',
+                                  tam: 30,
+                                  color: 0XFF9F51CA,
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: 'Otomanopee One')
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
                         color: Colors.white,

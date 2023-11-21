@@ -2,7 +2,7 @@ import 'package:app/pages/screen0.dart';
 import 'package:flutter/material.dart';
 import 'package:app/pages/screen3.dart';
 import 'package:app/pages/screen4.dart';
-import 'package:app/pages/screen9.dart';
+import 'package:app/pages/screen6.dart';
 import 'package:app/pages/screen7.dart';
 import 'package:app/widgets/botones_drawer.dart';
 
@@ -42,7 +42,7 @@ class Midrawer extends StatelessWidget {
                       BotonDrawer(
                         title: "Servicios",
                         path: "assets/img/servicios.png",
-                        destino: Screen9(),
+                        destino: Screen6(),
                       ),
                       BotonDrawer(
                         title: "Reserva",

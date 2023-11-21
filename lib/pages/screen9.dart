@@ -1,5 +1,6 @@
 import 'package:app/widgets/custom_container_desplegable.dart';
 import 'package:app/widgets/custom_text.dart';
+import 'package:app/pages/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Screen9 extends StatefulWidget {
@@ -22,7 +23,7 @@ class _Screen9State extends State<Screen9> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: const Color(0XFFF23574),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(child: Midrawer()),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -48,8 +49,8 @@ class _Screen9State extends State<Screen9> with TickerProviderStateMixin {
                 height: 20.0,
               ),
               const CustomContainerDesplegable(
-                  ruta: 'assets/img/ecografiaObstetrica.jpg',
-                  titulo: 'ECOGRAFÍA OBSTETRICA',
+                ruta: 'assets/img/ecografiaObstetrica.jpg',
+                titulo: 'ECOGRAFÍA OBSTETRICA',
               ),
               const SizedBox(
                 height: 20.0,

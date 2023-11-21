@@ -1,3 +1,6 @@
+import 'package:app/pages/screen10.dart';
+import 'package:app/pages/screen12.dart';
+import 'package:app/pages/screen7.dart';
 import 'package:app/widgets/custom_buttom_icon.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_input_icon.dart';
@@ -19,7 +22,7 @@ class Screen11 extends StatelessWidget {
           child: Column(
             children: [
               const Row(
-                children: [CustomButtomText(destino: Screen11())],
+                children: [CustomButtomText(destino: Screen10())],
               ),
               Padding(
                 padding:
@@ -153,30 +156,15 @@ class Screen11 extends StatelessWidget {
                     ),
                     SizedBox(height: 20.0),
                     CustomButtomIcon(
-                      ancho: 200.0,
-                      alto: 50.0,
-                      icono: Icons.done,
-                      tamanioIcono: 28.0,
-                      titulo: 'Validar',
-                      tamanioLetra: 18,
-                      colorL: 0XFFFFFFFF,
-                      colorB: 0xFF9F51CA,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Montserrat',
-                    ),
-                    SizedBox(height: 10.0),
+                        title: 'Validar',
+                        icono: Icons.done,
+                        tam: 20.0,
+                        destino: Screen12()),
                     CustomButtomIcon(
-                      ancho: 200.0,
-                      alto: 50.0,
-                      icono: Icons.clear_outlined,
-                      tamanioIcono: 28.0,
-                      titulo: 'Cancelar',
-                      tamanioLetra: 18,
-                      colorL: 0XFFFFFFFF,
-                      colorB: 0xFF9F51CA,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Montserrat',
-                    ),
+                        title: 'Cancelar',
+                        icono: Icons.clear_outlined,
+                        tam: 20.0,
+                        destino: Screen7())
                   ],
                 ),
               ),

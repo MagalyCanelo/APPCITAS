@@ -1,3 +1,4 @@
+import 'package:app/pages/screen10.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainerDesplegable extends StatefulWidget {
@@ -155,7 +156,7 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Screen6(),
+                          builder: (context) => const Screen10(),
                         ),
                       );
                     },

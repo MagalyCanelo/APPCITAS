@@ -1,6 +1,7 @@
 import 'package:app/pages/drawer.dart';
-import 'package:app/pages/screen1.dart';
 import 'package:app/pages/screen8.dart';
+import 'package:app/pages/screen9.dart';
+import 'package:app/pages/screen14.dart';
 import 'package:app/widgets/custom_bottomc.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -75,13 +76,13 @@ class _Contenido7State extends State<Contenido7> {
               title: 'Agendar Cita',
               path: 'assets/img/agendar.png',
               tam: 20.0,
-              destino: Screen1(),
+              destino: Screen9(),
             ),
             const CustomBottomC(
               title: 'Ver Cita',
               path: 'assets/img/verCita.png',
               tam: 20.0,
-              destino: Screen1(),
+              destino: Screen14(),
             ),
           ],
         ),

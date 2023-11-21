@@ -1,16 +1,19 @@
+import 'package:app/pages/screen15.dart';
+import 'package:app/pages/screen7.dart';
+import 'package:app/widgets/custom_buttom_text.dart';
+import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:proyecto/pages/screen12.dart';
-import 'package:proyecto/widgets/Custom_bottoms.dart';
-import 'package:proyecto/widgets/fondoR.dart';
-import 'package:proyecto/widgets/fondo_resumen_cita.dart';
-import 'package:proyecto/widgets/informacion.dart';
+import 'package:app/widgets/Custom_bottoms.dart';
+import 'package:app/widgets/fondo_r.dart';
+import 'package:app/widgets/fondo_resumen_cita.dart';
+import 'package:app/widgets/informacion.dart';
 
 class Screen14 extends StatelessWidget {
   const Screen14({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: "Descripcion",
       home: Descripcion(),
     );
@@ -23,72 +26,83 @@ class Descripcion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Align(
-            alignment:
-                Alignment.centerLeft, // Alinea el Container a la izquierda
-            child: Container(
-              margin: const EdgeInsets.only(top: 20, left: 30),
-              padding: const EdgeInsets.only(left: 20),
-              child: Text(
-                'DESCRIPCION',
-                style: const TextStyle(
-                  fontFamily: 'Otomanopee One',
-                  color: Color(0xFF9F51CA),
-                  fontSize: 25.0,
-                ),
+        backgroundColor: Colors.white,
+        appBar: AppBar(backgroundColor: const Color(0XFFF23574)),
+        drawer: const Drawer(),
+        body: SingleChildScrollView(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 10.0),
+          child: Column(
+            children: [
+              const Row(
+                children: [CustomButtomText(destino: Screen7())],
               ),
-              decoration: const BoxDecoration(
-                border: Border(
-                  left: BorderSide(
-                    color: Color(0xFF9F51CA),
-                    width: 5,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const InformacionD(
-              titleI: "INFORMACION DE LA PACIENTE",
-              dniI: 12345678,
-              nombresI: "XXXXXX XXXXX",
-              apellidosI: "XXXXXX XXXXX",
-              celularI: 987654321),
-          const FondoR(
-              contenido: FondoRC(
-                  titleRC: "CITA",
-                  tipoecografiaRC: "XXXXXXX XXXXXX",
-                  precioRC: 99.0,
-                  duracionRC: 99,
-                  fechaRC: "12-12-2023",
-                  horaRC: "18:36")),
-          const FondoR(
-            contenido: Column(
-              children: [
-                Align(
-                  alignment:
-                      Alignment.centerLeft, // Alinea el texto a la izquierda
-                  child: Text(
-                    "POLITICA DE CANCELACION",
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w900,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          color: const Color(0xFF6E2794),
+                          width: 5.0,
+                          height: 40.0,
+                        ),
+                        const SizedBox(width: 10.0),
+                        const CustomText(
+                            title: 'DESCRIPCIÓN',
+                            tam: 30,
+                            color: 0XFF9F51CA,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'Otomanopee One')
+                      ],
                     ),
-                  ),
+                  ],
                 ),
-                SizedBox(height: 4),
-                Text(
-                    "La reserva se puede cancelar hasta el \n xx/xx/xx del xxxx a las x xx",
-                    style: TextStyle(
-                        fontFamily: 'Montserrat', fontWeight: FontWeight.w300),
-                    textAlign: TextAlign.center),
-                CustomBottomS(title: "Cancelar", tam: 17, destino: Screen12())
-              ],
-            ),
+              ),
+              const InformacionD(
+                  titleI: "INFORMACION DE LA PACIENTE",
+                  dniI: 12345678,
+                  nombresI: "XXXXXX XXXXX",
+                  apellidosI: "XXXXXX XXXXX",
+                  celularI: 987654321),
+              const FondoR(
+                  contenido: FondoRC(
+                      titleRC: "CITA",
+                      tipoecografiaRC: "XXXXXXX XXXXXX",
+                      precioRC: 99.0,
+                      duracionRC: 99,
+                      fechaRC: "12-12-2023",
+                      horaRC: "18:36")),
+              const FondoR(
+                contenido: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment
+                          .centerLeft, // Alinea el texto a la izquierda
+                      child: Text(
+                        "POLITICA DE CANCELACION",
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                        "La reserva se puede cancelar hasta el \n xx/xx/xx del xxxx a las x xx",
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w300),
+                        textAlign: TextAlign.center),
+                    CustomBottomS(
+                        title: "Cancelar", tam: 17, destino: Screen15())
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
+        )));
   }
 }
