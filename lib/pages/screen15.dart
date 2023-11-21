@@ -40,8 +40,8 @@ class Screen15 extends StatelessWidget {
                               ),
                               const SizedBox(width: 10.0),
                               const CustomText(
-                                  title: 'DETALLES',
-                                  tam: 30,
+                                  title: 'CANCELAR CITA',
+                                  tam: 29,
                                   color: 0XFF9F51CA,
                                   fontWeight: FontWeight.normal,
                                   fontFamily: 'Otomanopee One')

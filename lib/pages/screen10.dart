@@ -38,7 +38,7 @@ class Screen10 extends StatelessWidget {
                     const SizedBox(width: 10.0),
                     const CustomText(
                         title: 'FECHA',
-                        tam: 30,
+                        tam: 29,
                         color: 0XFF9F51CA,
                         fontWeight: FontWeight.normal,
                         fontFamily: 'Otomanopee One')
@@ -62,7 +62,7 @@ class Screen10 extends StatelessWidget {
                         const SizedBox(width: 10.0),
                         const CustomText(
                             title: 'HORA',
-                            tam: 30,
+                            tam: 29,
                             color: 0XFF9F51CA,
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Otomanopee One')

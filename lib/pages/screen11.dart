@@ -39,7 +39,7 @@ class Screen11 extends StatelessWidget {
                         const SizedBox(width: 10.0),
                         const CustomText(
                             title: 'INFORMACIÓN',
-                            tam: 30,
+                            tam: 29,
                             color: 0XFF9F51CA,
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Otomanopee One')

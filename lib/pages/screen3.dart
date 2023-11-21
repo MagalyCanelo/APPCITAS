@@ -1,4 +1,5 @@
 import 'package:app/pages/drawer.dart';
+import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/subtitulos_c.dart';
 
@@ -24,7 +25,6 @@ class Conocemos extends StatelessWidget {
       body: ListView(
         children: [
           titulocentral(),
-          const SizedBox(height: 8.0),
           const SubtitulosC(title: 'Conocenos'),
           textodescripcion(),
           imagen(),
@@ -58,22 +58,24 @@ void main() {
 }
 
 Widget titulocentral() {
-  return Container(
-      margin: const EdgeInsets.only(top: 20, left: 30),
-      padding: const EdgeInsets.only(left: 20),
-      child: Text(
-        'REINA ISABEL',
-        style: const TextStyle(
-            fontFamily: 'Otomanopee One',
-            color: Color(0xFF9F51CA),
-            fontSize: 27.0),
-      ),
-      decoration: const BoxDecoration(
-          border: Border(
-              left: BorderSide(
-        color: Color(0xFF9F51CA),
-        width: 5,
-      ))));
+  return Padding(
+      padding: const EdgeInsets.only(left: 20.0, top: 15.0, bottom: 5.0),
+      child: Row(
+        children: [
+          Container(
+            color: const Color(0xFF6E2794),
+            width: 5.0,
+            height: 40.0,
+          ),
+          const SizedBox(width: 10.0),
+          const CustomText(
+              title: 'REINA ISABEL',
+              tam: 30,
+              color: 0XFF9F51CA,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'Otomanopee One'),
+        ],
+      ));
 }
 
 Widget textodescripcion() {

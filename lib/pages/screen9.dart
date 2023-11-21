@@ -39,7 +39,7 @@ class _Screen9State extends State<Screen9> with TickerProviderStateMixin {
                   const SizedBox(width: 10.0),
                   const CustomText(
                       title: 'SERVICIOS',
-                      tam: 30,
+                      tam: 29,
                       color: 0XFF9F51CA,
                       fontWeight: FontWeight.normal,
                       fontFamily: 'Otomanopee One'),
