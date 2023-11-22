@@ -15,17 +15,17 @@ class CustomButtomIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(15.0),
         child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor:
                   MaterialStateProperty.all<Color>(const Color(0xFF9F51CA)),
               foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
               padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                const EdgeInsets.symmetric(vertical: 10.0),
+                const EdgeInsets.symmetric(vertical: 5.0),
               ),
               fixedSize: MaterialStateProperty.all<Size>(
-                const Size(170.0, 45.0),
+                const Size(165.0, 43.0),
               ),
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [

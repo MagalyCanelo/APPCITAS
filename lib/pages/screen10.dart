@@ -22,7 +22,7 @@ class Screen10 extends StatelessWidget {
           child: Midrawer(),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 6.0),
           child: Column(
             children: [
               const Row(
@@ -54,7 +54,7 @@ class Screen10 extends StatelessWidget {
                 child: Column(
                   children: [
                     const CustomCalendar(),
-                    const SizedBox(height: 20.0),
+                    const SizedBox(height: 40.0),
                     Row(
                       children: [
                         Container(
@@ -73,6 +73,7 @@ class Screen10 extends StatelessWidget {
                     ),
                     const SizedBox(height: 10.0),
                     const CustomBottomSelected(),
+                    const SizedBox(height: 15.0),
                     const CustomBottomS(
                         title: 'Continuar', tam: 16, destino: Screen11())
                   ],

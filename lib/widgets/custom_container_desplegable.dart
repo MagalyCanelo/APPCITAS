@@ -17,7 +17,7 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
     with TickerProviderStateMixin {
   bool expanded = false;
   final double initialHeight = 220.0;
-  final double expandedHeight = 385.0;
+  final double expandedHeight = 368.0;
   final double borderRadius = 10.0;
   final double imageBorderRadius = 5.0;
 
@@ -53,14 +53,14 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                   child: Image.asset(
                     widget.ruta,
                     width: double.infinity,
-                    height: 150.0,
+                    height: 160.0,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 10.5),
               Positioned(
-                bottom: 40.0,
+                bottom: 20.0,
                 left: 10.0,
                 right: 10.0,
                 child: Column(
@@ -72,30 +72,39 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                         Text(
                           widget.titulo,
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Montserrat',
-                          ),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat',
+                              fontSize: 15.5),
                         ),
                         const SizedBox(width: 20.0),
-                        Align(
-                          alignment: Alignment.center,
-                          child: ElevatedButton.icon(
+                        Container(
+                          width: 40.0,
+                          height: 35.0,
+                          child: ElevatedButton(
                             onPressed: () {
                               setState(() {
                                 expanded = !expanded;
                               });
                             },
-                            icon: Icon(
-                              expanded
-                                  ? Icons.arrow_drop_up
-                                  : Icons.arrow_drop_down,
-                              size: 24.0,
-                            ),
-                            label: Text(expanded ? '' : ''),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF9F51CA),
                               padding: EdgeInsets.zero,
-                              fixedSize: const Size(0.0, 36.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    5.0), // Opcional: agrega bordes redondeados al botón
+                              ),
+                              backgroundColor: const Color(0xFF9F51CA),
+                              minimumSize: const Size(40.0,
+                                  40.0), // Establece el tamaño del botón igual al del Container
+                            ),
+                            child: SizedBox(
+                              width: 30.0, // Tamaño del icono
+                              height: 30.0,
+                              child: Icon(
+                                expanded
+                                    ? Icons.arrow_drop_up
+                                    : Icons.arrow_drop_down,
+                                size: 25.0,
+                              ),
                             ),
                           ),
                         ),
@@ -109,16 +118,16 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           Text(
                             'Incluye:',
                             style: TextStyle(
-                              fontSize: 13.0,
+                              fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                          SizedBox(height: 3.0),
+                          SizedBox(height: 5.5),
                           Text(
                             '1. Historia Clínico Electrónica',
                             style: TextStyle(
-                              fontSize: 13.0,
+                              fontSize: 14.4,
                               fontFamily: 'Montserrat',
                             ),
                           ),
@@ -126,7 +135,7 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           Text(
                             '2. Evaluación Materna y Fetal',
                             style: TextStyle(
-                              fontSize: 13.0,
+                              fontSize: 14.4,
                               fontFamily: 'Montserrat',
                             ),
                           ),
@@ -134,11 +143,11 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                           Text(
                             '3. Control Ecográfico Básico',
                             style: TextStyle(
-                              fontSize: 13.0,
+                              fontSize: 14.4,
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                          SizedBox(height: 15.0),
+                          SizedBox(height: 7.0),
                         ],
                       ),
                     ),

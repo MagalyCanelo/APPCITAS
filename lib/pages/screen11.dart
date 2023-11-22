@@ -4,6 +4,7 @@ import 'package:app/pages/screen12.dart';
 import 'package:app/pages/screen7.dart';
 import 'package:app/widgets/custom_buttom_icon.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
+import 'package:app/widgets/custom_descrip.dart';
 import 'package:app/widgets/custom_input_icon.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class Screen11 extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 6.0),
           child: Column(
             children: [
               const Row(
@@ -57,14 +58,14 @@ class Screen11 extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomInputIcon(
-                        alto: 45.0,
+                        alto: 47.0,
                         ancho: double.infinity,
                         tipo: TextInputType.number,
                         titulo: 'DNI',
                         icono: Icons.mode),
                     Row(
                       children: [
-                        CustomText(
+                        CustomDescrip(
                             title: 'DNI del paciente',
                             tam: 10,
                             color: 0XFF695C5C,
@@ -74,14 +75,14 @@ class Screen11 extends StatelessWidget {
                     ),
                     SizedBox(height: 15.0),
                     CustomInputIcon(
-                        alto: 45.0,
+                        alto: 47.0,
                         ancho: double.infinity,
                         tipo: TextInputType.name,
                         titulo: 'Nombres',
                         icono: Icons.mode),
                     Row(
                       children: [
-                        CustomText(
+                        CustomDescrip(
                             title: 'Nombres del paciente',
                             tam: 10,
                             color: 0XFF695C5C,
@@ -91,14 +92,14 @@ class Screen11 extends StatelessWidget {
                     ),
                     SizedBox(height: 15.0),
                     CustomInputIcon(
-                        alto: 45.0,
+                        alto: 47.0,
                         ancho: double.infinity,
                         tipo: TextInputType.name,
                         titulo: 'Apellidos',
                         icono: Icons.mode),
                     Row(
                       children: [
-                        CustomText(
+                        CustomDescrip(
                             title: 'Apellidos del paciente',
                             tam: 10,
                             color: 0XFF695C5C,
@@ -108,14 +109,14 @@ class Screen11 extends StatelessWidget {
                     ),
                     SizedBox(height: 15.0),
                     CustomInputIcon(
-                        alto: 45.0,
+                        alto: 47.0,
                         ancho: double.infinity,
                         tipo: TextInputType.number,
                         titulo: 'Celular',
                         icono: Icons.mode),
                     Row(
                       children: [
-                        CustomText(
+                        CustomDescrip(
                             title: 'Celular del paciente',
                             tam: 10,
                             color: 0XFF695C5C,
@@ -125,14 +126,14 @@ class Screen11 extends StatelessWidget {
                     ),
                     SizedBox(height: 15.0),
                     CustomInputIcon(
-                        alto: 45.0,
+                        alto: 47.0,
                         ancho: double.infinity,
                         tipo: TextInputType.datetime,
                         titulo: 'Fecha',
                         icono: Icons.mode),
                     Row(
                       children: [
-                        CustomText(
+                        CustomDescrip(
                             title: 'Fecha de la cita',
                             tam: 10,
                             color: 0XFF695C5C,
@@ -142,14 +143,14 @@ class Screen11 extends StatelessWidget {
                     ),
                     SizedBox(height: 15.0),
                     CustomInputIcon(
-                        alto: 45.0,
+                        alto: 47.0,
                         ancho: double.infinity,
                         tipo: TextInputType.datetime,
                         titulo: 'Hora',
                         icono: Icons.mode),
                     Row(
                       children: [
-                        CustomText(
+                        CustomDescrip(
                             title: 'Hora de la cita',
                             tam: 10,
                             color: 0XFF695C5C,
@@ -157,16 +158,16 @@ class Screen11 extends StatelessWidget {
                             fontFamily: 'Montserrat'),
                       ],
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 23.0),
                     CustomButtomIcon(
                         title: 'Validar',
                         icono: Icons.done,
-                        tam: 20.0,
+                        tam: 19.0,
                         destino: Screen12()),
                     CustomButtomIcon(
                         title: 'Cancelar',
                         icono: Icons.clear_outlined,
-                        tam: 20.0,
+                        tam: 19.0,
                         destino: Screen7())
                   ],
                 ),

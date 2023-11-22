@@ -21,7 +21,7 @@ class Screen15 extends StatelessWidget {
           child: Center(
               child: Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 2.0, vertical: 10.0),
+                      horizontal: 2.0, vertical: 6.0),
                   child: Column(children: [
                     const Row(
                       children: [CustomButtomText(destino: Screen14())],

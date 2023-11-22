@@ -15,7 +15,7 @@ class BotonDrawer extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: const TextStyle(fontSize: 17),
+        style: const TextStyle(fontSize: 18),
       ),
       leading: Image.asset(path, width: 30, height: 30),
       onTap: () {
