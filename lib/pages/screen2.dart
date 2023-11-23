@@ -109,9 +109,8 @@ class _Contenido2State extends State<Contenido2> {
                       title: 'Crear Cuenta',
                       tam: 20.0,
                       destino:
-                          const Screen1(), // Reemplaza NextPage() con tu destino real
+                          const Screen1(), 
                       add: () async {
-                        // Lógica que retorna un Future<void>
                         await addCuenta(
                           dniController.text,
                           nomController.text,
