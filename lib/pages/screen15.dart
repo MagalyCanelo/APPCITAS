@@ -1,7 +1,7 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen0.dart';
 import 'package:app/pages/screen14.dart';
-import 'package:app/widgets/custom_bottomc.dart';
+import 'package:app/widgets/custom_buttom_icon.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +65,7 @@ class Screen15 extends StatelessWidget {
                                   padding: const EdgeInsets.only(bottom: 45.0),
                                   child: Image.asset(
                                     'assets/img/cancelar.png',
-                                    width: 150.0, // Ajustando el ancho aquí
+                                    width: 140.0, // Ajustando el ancho aquí
                                   ),
                                 ),
                                 informacionC(
@@ -74,24 +74,16 @@ class Screen15 extends StatelessWidget {
                                 informacionC('Hora: ', '03:00 pm'),
                                 informacionC('Motivo: ', '_______________'),
                               ])),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(),
-                            child: CustomBottomC(
+                          const CustomButtomIcon(
                               title: 'Enviar',
-                              path: 'assets/img/check.png',
-                              tam: 20.0,
-                              destino: Screen0(),
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(),
-                            child: CustomBottomC(
+                              icono: Icons.done,
+                              tam: 19.0,
+                              destino: Screen0()),
+                          const CustomButtomIcon(
                               title: 'Cancelar',
-                              path: 'assets/img/x.png',
-                              tam: 20.0,
-                              destino: Screen0(),
-                            ),
-                          )
+                              icono: Icons.clear_outlined,
+                              tam: 19.0,
+                              destino: Screen0())
                         ]))
                   ])))),
       bottomNavigationBar: BottomAppBar(
@@ -126,14 +118,14 @@ Widget informacionC(String texto1, String texto2) {
             Text(
               texto1,
               style: const TextStyle(
-                fontSize: 19,
+                fontSize: 16.5,
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               texto2,
-              style: const TextStyle(fontSize: 19, fontFamily: 'Montserrat'),
+              style: const TextStyle(fontSize: 16.5, fontFamily: 'Montserrat'),
             ),
           ],
         ),

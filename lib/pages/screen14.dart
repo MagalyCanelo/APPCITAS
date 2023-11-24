@@ -1,10 +1,10 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen15.dart';
 import 'package:app/pages/screen7.dart';
+import 'package:app/widgets/bottom_cancelar.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:app/widgets/Custom_bottoms.dart';
 import 'package:app/widgets/fondo_r.dart';
 import 'package:app/widgets/fondo_resumen_cita.dart';
 import 'package:app/widgets/informacion.dart';
@@ -73,7 +73,7 @@ class Descripcion extends StatelessWidget {
               const FondoR(
                   contenido: FondoRC(
                       titleRC: "CITA",
-                      tipoecografiaRC: "XXXXXXX XXXXXX",
+                      tipoecografiaRC: "XXXXXXXXX XXXXXXXXX",
                       precioRC: 99.0,
                       duracionRC: 99,
                       fechaRC: "12-12-2023",
@@ -99,8 +99,8 @@ class Descripcion extends StatelessWidget {
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w300),
                         textAlign: TextAlign.center),
-                    CustomBottomS(
-                        title: "Cancelar", tam: 17, destino: Screen15())
+                    CustomCancelar(
+                        title: "Cancelar", tam: 15.5, destino: Screen15())
                   ],
                 ),
               ),

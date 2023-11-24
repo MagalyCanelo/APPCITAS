@@ -23,7 +23,7 @@ class FondoRC extends StatelessWidget {
     return Column(
       children: [
         Align(
-          alignment: Alignment.centerLeft, // Alinea el texto a la izquierda
+          alignment: Alignment.centerLeft,
           child: Text(
             titleRC,
             style: const TextStyle(
@@ -38,7 +38,7 @@ class FondoRC extends StatelessWidget {
             Text(tipoecografiaRC,
                 style: const TextStyle(fontWeight: FontWeight.w400)),
             const SizedBox(
-              width: 128,
+              width: 118,
             ),
             Text(precioRC.toString(),
                 style: const TextStyle(

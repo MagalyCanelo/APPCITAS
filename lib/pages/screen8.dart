@@ -71,6 +71,16 @@ class Screen8 extends StatelessWidget {
                   ),
                   const SizedBox(height: 20.0),
                   const BotonNoti(),
+                  /*FutureBuilder(
+                      future: getCuentas(),
+                      builder: ((context, snapshot) {
+                        return ListView.builder(
+                          itemCount: snapshot.data?.length,
+                          itemBuilder: (context, index) {
+                            return Text(snapshot.data?[index]['correo']);
+                          },
+                        );
+                      }))*/
                 ]))),
         bottomNavigationBar: BottomAppBar(
           color: const Color(0xFFF23574),

@@ -4,6 +4,7 @@ import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_pass.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:app/widgets/custom_validacion.dart';
+import 'package:app/services/dni_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,8 @@ class _Contenido1State extends State<Contenido1> {
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  DniProvider dniProvider = DniProvider();
+
   Future<void> _signInWithEmailAndPassword() async {
     String correo = correoController.text.trim();
     String contra = contraController.text;
@@ -47,6 +50,10 @@ class _Contenido1State extends State<Contenido1> {
         var user = querySnapshot.docs[0];
 
         if (user['contra'] == contra) {
+          String dni = user['dni'];
+          print('DNI a enviar al provider: $dni');
+          dniProvider.setDni(dni);
+
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Screen3()),

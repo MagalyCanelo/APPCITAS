@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomPass extends StatefulWidget {
+class CustomPassLect extends StatefulWidget {
   final TextEditingController control;
   final TextInputType tipo;
   final bool hidden;
   final String title;
-  const CustomPass(
+  const CustomPassLect(
       {super.key,
       required this.control,
       required this.tipo,
@@ -13,10 +13,10 @@ class CustomPass extends StatefulWidget {
       required this.title});
 
   @override
-  _CustomPassState createState() => _CustomPassState();
+  _CustomPassLectState createState() => _CustomPassLectState();
 }
 
-class _CustomPassState extends State<CustomPass> {
+class _CustomPassLectState extends State<CustomPassLect> {
   bool _obscureText = true;
 
   @override
@@ -36,6 +36,7 @@ class _CustomPassState extends State<CustomPass> {
           controller: widget.control,
           keyboardType: widget.tipo,
           obscureText: _obscureText,
+          readOnly: true,
           decoration: InputDecoration(
             labelText: widget.title,
             fillColor: Colors.white,

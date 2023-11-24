@@ -1,8 +1,9 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen5.dart';
-import 'package:app/widgets/custom_input.dart';
-import 'package:app/widgets/custom_input_max.dart';
-import 'package:app/widgets/custom_pass.dart';
+//import 'package:app/services/dni_provider.dart';
+import 'package:app/services/firebase_services.dart';
+import 'package:app/widgets/custom_input_lect.dart';
+import 'package:app/widgets/custom_pass_lect.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,39 @@ class _Contenido4State extends State<Contenido4> {
   TextEditingController celController = TextEditingController(text: "");
   TextEditingController correoController = TextEditingController(text: "");
   TextEditingController contraController = TextEditingController(text: "");
+
+  @override
+  void initState() {
+    super.initState();
+
+    obtenerDatosPorDNI();
+  }
+
+  Future<void> obtenerDatosPorDNI() async {
+    try {
+      //final dniProvider = Provider.of<DniProvider>(context);
+      String dni = '71484289'; // dniProvider.dni;
+      print(dni);
+      // Llamada a la función getCuentaUsuario con el DNI actual
+      Map<String, dynamic>? datosCuenta =
+          await getCuentaUsuario(dni) as Map<String, dynamic>?;
+
+      if (datosCuenta != null) {
+        // Actualiza los controladores de texto con los datos obtenidos
+        setState(() {
+          dniController.text = dni;
+          nomController.text = datosCuenta['nombres'] ?? '';
+          apeController.text = datosCuenta['apellidos'] ?? '';
+          celController.text = datosCuenta['celular'] ?? '';
+          correoController.text = datosCuenta['correo'] ?? '';
+          contraController.text = datosCuenta['contra'] ?? '';
+        });
+      }
+    } catch (e) {
+      // Maneja cualquier error que pueda ocurrir al obtener los datos
+      print('Error al obtener los datos: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,34 +136,32 @@ class _Contenido4State extends State<Contenido4> {
                           const SizedBox(width: 10.0),
                         ],
                       ),
-                      CustomInputMax(
+                      CustomInputLec(
                         control: dniController,
                         tipo: TextInputType.number,
-                        max: 8,
                         title: 'DNI',
                       ),
-                      CustomInput(
+                      CustomInputLec(
                         control: nomController,
                         tipo: TextInputType.text,
                         title: 'Nombres',
                       ),
-                      CustomInput(
+                      CustomInputLec(
                         control: apeController,
                         tipo: TextInputType.text,
                         title: 'Apellidos',
                       ),
-                      CustomInputMax(
+                      CustomInputLec(
                         control: celController,
                         tipo: TextInputType.number,
-                        max: 9,
                         title: 'Celular',
                       ),
-                      CustomInput(
+                      CustomInputLec(
                         control: correoController,
                         tipo: TextInputType.emailAddress,
                         title: 'Correo',
                       ),
-                      CustomPass(
+                      CustomPassLect(
                         control: contraController,
                         tipo: TextInputType.text,
                         hidden: true,

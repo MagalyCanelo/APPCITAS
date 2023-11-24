@@ -100,7 +100,7 @@ class Detalles extends StatelessWidget {
                         children: [
                           FondoRC(
                             titleRC: "RESUMEN",
-                            tipoecografiaRC: "XXXXXXX XXXXXX",
+                            tipoecografiaRC: "XXXXXXXXX XXXXXXXXX",
                             precioRC: 99.00,
                             duracionRC: 99,
                             fechaRC: "",
@@ -118,7 +118,7 @@ class Detalles extends StatelessWidget {
                                   style:
                                       TextStyle(fontWeight: FontWeight.w400)),
                               SizedBox(
-                                width: 190,
+                                width: 230,
                               ),
                               Text("S/45.00",
                                   style: TextStyle(
