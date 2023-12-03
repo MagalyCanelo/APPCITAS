@@ -1,12 +1,14 @@
 import 'package:app/pages/screen2.dart';
 import 'package:app/pages/screen3.dart';
+import 'package:app/services/user_model.dart';
+import 'package:app/services/user_provider.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_pass.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:app/widgets/custom_validacion.dart';
-import 'package:app/services/dni_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Screen1 extends StatelessWidget {
   const Screen1({super.key});
@@ -34,8 +36,6 @@ class _Contenido1State extends State<Contenido1> {
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  DniProvider dniProvider = DniProvider();
-
   Future<void> _signInWithEmailAndPassword() async {
     String correo = correoController.text.trim();
     String contra = contraController.text;
@@ -50,13 +50,23 @@ class _Contenido1State extends State<Contenido1> {
         var user = querySnapshot.docs[0];
 
         if (user['contra'] == contra) {
-          String dni = user['dni'];
-          print('DNI a enviar al provider: $dni');
-          dniProvider.setDni(dni);
+          User currentUser = User(
+            id: user.id,
+            nombres: user['nombres'],
+            apellidos: user['apellidos'],
+            correo: user['correo'],
+            celular: user['celular'],
+            dni: user['dni'],
+          );
+
+          UserProvider userProvider =
+              Provider.of<UserProvider>(context, listen: false);
+
+          userProvider.setUser(currentUser);
 
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Screen3()),
+            MaterialPageRoute(builder: (context) => Screen3(userId: user.id)),
           );
         } else {
           _showSnackBar('Contraseña incorrecta');

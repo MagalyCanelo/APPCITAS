@@ -1,7 +1,9 @@
+import 'package:app/services/user_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:app/pages/screen0.dart';
 import 'package:app/services/noti_services.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -18,10 +20,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Material App',
-      home: Screen0(),
-      debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+      ],
+      child: const MaterialApp(
+        title: 'Material App',
+        home: Screen0(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

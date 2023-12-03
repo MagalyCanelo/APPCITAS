@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:app/widgets/subtitulos_c.dart';
 
 class Screen3 extends StatelessWidget {
-  const Screen3({super.key});
+  final String userId;
+  const Screen3({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +50,6 @@ class Conocemos extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: Screen3(),
-  ));
 }
 
 Widget titulocentral() {

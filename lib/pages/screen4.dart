@@ -1,14 +1,17 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen5.dart';
-//import 'package:app/services/dni_provider.dart';
 import 'package:app/services/firebase_services.dart';
+import 'package:app/services/user_model.dart';
+import 'package:app/services/user_provider.dart';
 import 'package:app/widgets/custom_input_lect.dart';
 import 'package:app/widgets/custom_pass_lect.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Screen4 extends StatelessWidget {
-  const Screen4({super.key});
+  final String userId;
+  const Screen4({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -38,23 +41,27 @@ class _Contenido4State extends State<Contenido4> {
   @override
   void initState() {
     super.initState();
-
-    obtenerDatosPorDNI();
   }
 
-  Future<void> obtenerDatosPorDNI() async {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    obtenerDatosPorId();
+  }
+
+  Future<void> obtenerDatosPorId() async {
     try {
-      //final dniProvider = Provider.of<DniProvider>(context);
-      String dni = '71484289'; // dniProvider.dni;
-      print(dni);
-      // Llamada a la función getCuentaUsuario con el DNI actual
-      Map<String, dynamic>? datosCuenta =
-          await getCuentaUsuario(dni) as Map<String, dynamic>?;
+      UserProvider userProvider = Provider.of<UserProvider>(context);
+      User currentUser = userProvider.getUser();
+
+      String userId = currentUser.id;
+      print('ID del usuario actual perfil: $userId');
+
+      Map<String, dynamic>? datosCuenta = await getCuentaUsuarioById(userId);
 
       if (datosCuenta != null) {
-        // Actualiza los controladores de texto con los datos obtenidos
         setState(() {
-          dniController.text = dni;
+          dniController.text = datosCuenta['dni'] ?? '';
           nomController.text = datosCuenta['nombres'] ?? '';
           apeController.text = datosCuenta['apellidos'] ?? '';
           celController.text = datosCuenta['celular'] ?? '';
@@ -63,13 +70,14 @@ class _Contenido4State extends State<Contenido4> {
         });
       }
     } catch (e) {
-      // Maneja cualquier error que pueda ocurrir al obtener los datos
       print('Error al obtener los datos: $e');
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider = Provider.of<UserProvider>(context);
+    User currentUser = userProvider.getUser();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -125,7 +133,8 @@ class _Contenido4State extends State<Contenido4> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const Screen5(),
+                                    builder: (context) =>
+                                        Screen5(userId: currentUser.id),
                                   ),
                                 );
                               },

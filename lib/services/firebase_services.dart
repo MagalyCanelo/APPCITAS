@@ -8,22 +8,40 @@ Future<List> getCuentas() async {
 
   QuerySnapshot queryCuentas = await collectionReferenceCuentas.get();
 
-  queryCuentas.docs.forEach((documento) {
-    cuentas.add(documento.data());
-  });
+  for (var doc in queryCuentas.docs) {
+    final Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+    final person = {
+      "dni": data['dni'],
+      "nombres": data['noms'],
+      "apellidos": data['apells'],
+      "celular": data['cel'],
+      "correo": data['correo'],
+      "contra": data['contra'],
+      "uid": doc.id,
+    };
+
+    cuentas.add(person);
+  }
 
   return cuentas;
 }
 
-Future<Object?> getCuentaUsuario(String dni) async {
-  CollectionReference collectionReferenceCuentas = db.collection('cuenta');
+Future<Map<String, dynamic>?> getCuentaUsuarioById(String userId) async {
+  try {
+    DocumentSnapshot documentSnapshot =
+        await db.collection('cuenta').doc(userId).get();
 
-  QuerySnapshot queryCuentas =
-      await collectionReferenceCuentas.where('dni', isEqualTo: dni).get();
+    if (documentSnapshot.exists) {
+      Map<String, dynamic>? userData =
+          documentSnapshot.data() as Map<String, dynamic>?;
 
-  if (queryCuentas.docs.isNotEmpty) {
-    return queryCuentas.docs.first.data();
-  } else {
+      if (userData != null) {
+        return userData;
+      }
+    }
+    return null;
+  } catch (e) {
+    print('Error al obtener los datos del usuario: $e');
     return null;
   }
 }
@@ -46,4 +64,23 @@ Future<void> addCuenta(
       "contra": contra,
     });
   } catch (e) {}
+}
+
+Future<void> updateCuenta(
+  String uid,
+  String newdni,
+  String newnoms,
+  String newapells,
+  String newcel,
+  String newcorreo,
+  String newcontra,
+) async {
+  await db.collection("cuenta").doc(uid).set({
+    "dni": newdni,
+    "nombres": newnoms,
+    "apellidos": newapells,
+    "celular": newcel,
+    "correo": newcorreo,
+    "contra": newcontra,
+  });
 }

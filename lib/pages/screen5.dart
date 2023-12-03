@@ -1,13 +1,18 @@
 import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen4.dart';
+import 'package:app/services/firebase_services.dart';
+import 'package:app/services/user_model.dart';
+import 'package:app/services/user_provider.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_input_max.dart';
 import 'package:app/widgets/custom_pass.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Screen5 extends StatelessWidget {
-  const Screen5({super.key});
+  final String userId;
+  const Screen5({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,45 @@ class _Contenido5State extends State<Contenido5> {
   TextEditingController contraController = TextEditingController(text: "");
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    obtenerDatosPorId();
+  }
+
+  Future<void> obtenerDatosPorId() async {
+    try {
+      UserProvider userProvider = Provider.of<UserProvider>(context);
+      User currentUser = userProvider.getUser();
+
+      String userId = currentUser.id;
+      print('ID del usuario actual perfil: $userId');
+
+      Map<String, dynamic>? datosCuenta = await getCuentaUsuarioById(userId);
+
+      if (datosCuenta != null) {
+        setState(() {
+          dniController.text = datosCuenta['dni'] ?? '';
+          nomController.text = datosCuenta['nombres'] ?? '';
+          apeController.text = datosCuenta['apellidos'] ?? '';
+          celController.text = datosCuenta['celular'] ?? '';
+          correoController.text = datosCuenta['correo'] ?? '';
+          contraController.text = datosCuenta['contra'] ?? '';
+        });
+      }
+    } catch (e) {
+      print('Error al obtener los datos: $e');
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    UserProvider userProvider = Provider.of<UserProvider>(context);
+    User currentUser = userProvider.getUser();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -120,10 +163,22 @@ class _Contenido5State extends State<Contenido5> {
                       const SizedBox(height: 20.0),
                       ElevatedButton(
                           onPressed: () {
+                            updateCuenta(
+                              currentUser.id,
+                              dniController.text,
+                              nomController.text,
+                              apeController.text,
+                              celController.text,
+                              correoController.text,
+                              contraController.text,
+                            );
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => const Screen4())));
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) =>
+                                    Screen4(userId: currentUser.id)),
+                              ),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                               minimumSize: const Size(250, 48),

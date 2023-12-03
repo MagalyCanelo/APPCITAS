@@ -1,16 +1,22 @@
-import 'package:app/pages/screen0.dart';
+// import 'package:app/pages/screen0.dart';
+import 'package:app/services/user_model.dart';
+import 'package:app/services/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:app/pages/screen3.dart';
 import 'package:app/pages/screen4.dart';
-import 'package:app/pages/screen6.dart';
-import 'package:app/pages/screen7.dart';
+// import 'package:app/pages/screen6.dart';
+// import 'package:app/pages/screen7.dart';
 import 'package:app/widgets/botones_drawer.dart';
+import 'package:provider/provider.dart';
 
 class Midrawer extends StatelessWidget {
   const Midrawer({super.key});
   final padding = const EdgeInsets.symmetric(horizontal: 20.0);
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider = Provider.of<UserProvider>(context);
+    User currentUser = userProvider.getUser();
+
     return Drawer(
         child: Material(
             color: Colors.white,
@@ -27,18 +33,33 @@ class Midrawer extends StatelessWidget {
               const SizedBox(height: 15),
               Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: const Column(
+                  child: Column(
                     children: [
                       BotonDrawer(
-                        title: "Inicio",
-                        path: "assets/img/inicio.png",
-                        destino: Screen3(),
-                      ),
+                          title: "Inicio",
+                          path: "assets/img/inicio.png",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    Screen3(userId: currentUser.id),
+                              ),
+                            );
+                          }),
                       BotonDrawer(
-                        title: "Perfil",
-                        path: "assets/img/usuario.png",
-                        destino: Screen4(),
-                      ),
+                          title: "Perfil",
+                          path: "assets/img/usuario.png",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    Screen4(userId: currentUser.id),
+                              ),
+                            );
+                          }),
+                      /*
                       BotonDrawer(
                         title: "Servicios",
                         path: "assets/img/servicios.png",
@@ -54,7 +75,7 @@ class Midrawer extends StatelessWidget {
                         title: "Salir",
                         path: "assets/img/salir.png",
                         destino: Screen0(),
-                      ),
+                      ),*/
                     ],
                   )),
             ])));
