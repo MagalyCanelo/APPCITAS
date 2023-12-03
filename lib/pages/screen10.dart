@@ -2,14 +2,37 @@ import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen9.dart';
 import 'package:app/pages/screen11.dart';
 import 'package:app/widgets/custom_bottom_selected.dart';
-import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_calendar.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class Screen10 extends StatelessWidget {
+class Screen10 extends StatefulWidget {
   const Screen10({super.key});
+
+  @override
+  _Screen10State createState() => _Screen10State();
+}
+
+class _Screen10State extends State<Screen10> {
+  DateTime? selectedDate;
+  TimeOfDay? selectedTime;
+
+  void updateDate(DateTime date) {
+    setState(() {
+      selectedDate = date;
+    });
+  }
+
+  void updateTime(TimeOfDay time) {
+    setState(() {
+      selectedTime = time;
+    });
+  }
+
+  bool isDateTimeSelected() {
+    return selectedDate != null && selectedTime != null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +76,9 @@ class Screen10 extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                 child: Column(
                   children: [
-                    const CustomCalendar(),
+                    CustomCalendar(
+                      onDateSelected: updateDate,
+                    ),
                     const SizedBox(height: 40.0),
                     Row(
                       children: [
@@ -72,10 +97,50 @@ class Screen10 extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 10.0),
-                    const CustomBottomSelected(),
-                    const SizedBox(height: 15.0),
-                    const CustomBottomS(
-                        title: 'Continuar', tam: 16, destino: Screen11())
+                    CustomBottomSelected(
+                      onTimeSelected: updateTime,
+                    ),
+                    const SizedBox(height: 25.0),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color(0xFF9F51CA)),
+                            foregroundColor:
+                                MaterialStateProperty.all<Color>(Colors.white),
+                            padding:
+                                MaterialStateProperty.all<EdgeInsetsGeometry>(
+                              const EdgeInsets.symmetric(
+                                  vertical: 11.0, horizontal: 60.0),
+                            ),
+                          ),
+                          child: const Text(
+                            'Continuar',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          onPressed: isDateTimeSelected()
+                              ? () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Screen11()),
+                                  );
+                                }
+                              : null),
+                    ),
+                    /*ElevatedButton(
+                      onPressed: isDateTimeSelected()
+                          ? () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Screen11()),
+                              );
+                            }
+                          : null,
+                      child: const Text('Continuar'),
+                    ),*/
                   ],
                 ),
               )

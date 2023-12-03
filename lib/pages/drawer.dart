@@ -1,11 +1,11 @@
-// import 'package:app/pages/screen0.dart';
 import 'package:app/services/user_model.dart';
 import 'package:app/services/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:app/pages/screen0.dart';
 import 'package:app/pages/screen3.dart';
 import 'package:app/pages/screen4.dart';
-// import 'package:app/pages/screen6.dart';
-// import 'package:app/pages/screen7.dart';
+import 'package:app/pages/screen6.dart';
+import 'package:app/pages/screen7.dart';
 import 'package:app/widgets/botones_drawer.dart';
 import 'package:provider/provider.dart';
 
@@ -59,23 +59,40 @@ class Midrawer extends StatelessWidget {
                               ),
                             );
                           }),
-                      /*
                       BotonDrawer(
-                        title: "Servicios",
-                        path: "assets/img/servicios.png",
-                        destino: Screen6(),
-                      ),
+                          title: "Servicios",
+                          path: "assets/img/servicios.png",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Screen6(),
+                              ),
+                            );
+                          }),
                       BotonDrawer(
-                        title: "Reserva",
-                        path: "assets/img/reserva.png",
-                        destino: Screen7(),
-                      ),
-                      SizedBox(height: 420.0),
+                          title: "Reserva",
+                          path: "assets/img/reserva.png",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Screen7(),
+                              ),
+                            );
+                          }),
+                      const SizedBox(height: 420.0),
                       BotonDrawer(
-                        title: "Salir",
-                        path: "assets/img/salir.png",
-                        destino: Screen0(),
-                      ),*/
+                          title: "Salir",
+                          path: "assets/img/salir.png",
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Screen0(),
+                              ),
+                            );
+                          }),
                     ],
                   )),
             ])));
