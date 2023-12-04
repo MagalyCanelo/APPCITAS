@@ -25,7 +25,7 @@ class InformacionD extends StatelessWidget {
       child: Column(
         children: [
           Align(
-            alignment: Alignment.centerLeft, // Alinea el texto a la izquierda
+            alignment: Alignment.centerLeft,
             child: Text(
               titleI,
               style: const TextStyle(

@@ -2,7 +2,6 @@ import 'package:app/pages/screen1.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/custom_bottoms.dart';
 import 'package:app/widgets/custom_text.dart';
-// import 'package:app/pages/screen1.dart';
 
 class Screen0 extends StatelessWidget {
   const Screen0({super.key});
@@ -45,7 +44,7 @@ class _Contenido0State extends State<Contenido0> {
                     children: [
                       Image.asset(
                         'assets/img/logo.jpg',
-                        width: screenWidth * 0.70, // Ajustando el ancho aquí
+                        width: screenWidth * 0.70,
                       ),
                       const CustomText(
                         title: 'RESERVA',
@@ -75,7 +74,7 @@ class _Contenido0State extends State<Contenido0> {
                         padding: const EdgeInsets.symmetric(vertical: 45.0),
                         child: Image.asset(
                           'assets/img/embarazada.png',
-                          width: screenWidth * 0.66, // Ajustando el ancho aquí
+                          width: screenWidth * 0.66,
                         ),
                       ),
                       const CustomBottomS(

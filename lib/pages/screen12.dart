@@ -1,5 +1,4 @@
 import 'package:app/pages/drawer.dart';
-// import 'package:app/pages/screen11.dart';
 import 'package:app/pages/screen13.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_text.dart';
@@ -75,8 +74,7 @@ class Detalles extends StatelessWidget {
                       contenido: Column(
                         children: [
                           Align(
-                            alignment: Alignment
-                                .centerLeft, // Alinea el texto a la izquierda
+                            alignment: Alignment.centerLeft,
                             child: Text(
                               "POLÍTICA DE CANCELACIÓN",
                               style: TextStyle(

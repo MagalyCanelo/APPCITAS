@@ -30,9 +30,7 @@ class CustomButtomIcon extends StatelessWidget {
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Padding(
-                padding: const EdgeInsets.only(
-                    right:
-                        10.0), // Ajusta el valor del relleno según tus necesidades
+                padding: const EdgeInsets.only(right: 10.0),
                 child: SizedBox(
                   height: 30.0,
                   child: Icon(icono, size: 30.0),

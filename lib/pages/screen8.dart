@@ -4,7 +4,6 @@ import 'package:app/services/noti_services.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:app/widgets/fondo_r.dart';
-// import 'package:app/widgets/fondo_r.dart';
 import 'package:flutter/material.dart';
 
 class Screen8 extends StatelessWidget {
@@ -53,9 +52,7 @@ class Screen8 extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10.0,
-                              vertical:
-                                  8.0), // Ajusta el valor según tus preferencias
+                              horizontal: 10.0, vertical: 8.0),
                           child: Image.asset('assets/img/notificacion.png',
                               height: 50),
                         ),

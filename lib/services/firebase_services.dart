@@ -84,3 +84,26 @@ Future<void> updateCuenta(
     "contra": newcontra,
   });
 }
+
+Future<void> addCita(
+  String dniPaci,
+  String nomsPaci,
+  String apesPaci,
+  String celPaci,
+  String fechaCita,
+  String horaCita,
+) async {
+  try {
+    await FirebaseFirestore.instance.collection("cita").add({
+      "dniPaci": dniPaci,
+      "nomsPaci": nomsPaci,
+      "apesPaci": apesPaci,
+      "celPaci": celPaci,
+      "fechaCita": fechaCita,
+      "horaCita": horaCita,
+    });
+    print('Información de la cita guardada exitosamente en Firestore.');
+  } catch (e) {
+    print('Error al guardar la información de la cita en Firestore: $e');
+  }
+}

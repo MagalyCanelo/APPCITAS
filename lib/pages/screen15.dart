@@ -65,7 +65,7 @@ class Screen15 extends StatelessWidget {
                                   padding: const EdgeInsets.only(bottom: 45.0),
                                   child: Image.asset(
                                     'assets/img/cancelar.png',
-                                    width: 140.0, // Ajustando el ancho aquí
+                                    width: 140.0,
                                   ),
                                 ),
                                 informacionC(

@@ -66,11 +66,9 @@ class _CustomBottomSelectedState extends State<CustomBottomSelected> {
       ],
       isSelected: [isSelected[index]],
       onPressed: (int buttonIndex) {
-        final time = parseTime(
-            label); // Asume que tienes una función para convertir String a TimeOfDay
+        final time = parseTime(label);
         if (time != null) {
-          widget.onTimeSelected(
-              time); // Llama a la función de devolución de llamada con el tiempo seleccionado
+          widget.onTimeSelected(time);
           setState(() {
             for (int i = 0; i < isSelected.length; i++) {
               isSelected[i] = false;

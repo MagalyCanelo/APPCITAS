@@ -2,6 +2,7 @@ import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen10.dart';
 import 'package:app/pages/screen12.dart';
 import 'package:app/pages/screen7.dart';
+import 'package:app/services/cita_model.dart';
 import 'package:app/services/firebase_services.dart';
 import 'package:app/services/user_model.dart';
 import 'package:app/services/user_provider.dart';
@@ -10,6 +11,7 @@ import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_descrip.dart';
 import 'package:app/widgets/custom_input_icon.dart';
 import 'package:app/widgets/custom_text.dart';
+import 'package:app/widgets/custom_validarc.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -256,11 +258,34 @@ class _Contenido11State extends State<Contenido11> {
                       ],
                     ),
                     const SizedBox(height: 23.0),
-                    const CustomButtomIcon(
-                        title: 'Validar',
-                        icono: Icons.done,
-                        tam: 19.0,
-                        destino: Screen12()),
+                    CustomValidarC(
+                      title: 'Validar',
+                      icono: Icons.done,
+                      tam: 19.0,
+                      onPressed: () {
+                        Cita cita = Cita(
+                          dniPaci: dniController.text,
+                          nomsPaci: nomController.text,
+                          apesPaci: apeController.text,
+                          celPaci: celController.text,
+                          fechaCita: fechaController.text,
+                          horaCita: horaController.text,
+                        );
+                        addCita(
+                          cita.dniPaci,
+                          cita.nomsPaci,
+                          cita.apesPaci,
+                          cita.celPaci,
+                          cita.fechaCita,
+                          cita.horaCita,
+                        );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Screen12()),
+                        );
+                      },
+                    ),
                     const CustomButtomIcon(
                         title: 'Cancelar',
                         icono: Icons.clear_outlined,

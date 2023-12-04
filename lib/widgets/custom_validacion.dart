@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomValidacion extends StatelessWidget {
   final String title;
   final double tam;
-  final VoidCallback? onPressed; // Cambio en el tipo de parámetro
+  final VoidCallback? onPressed;
 
   const CustomValidacion(
       {super.key,
@@ -28,8 +28,7 @@ class CustomValidacion extends StatelessWidget {
           title,
           style: TextStyle(fontSize: tam),
         ),
-        onPressed:
-            onPressed, // Utilización directa de la función onPressed recibida
+        onPressed: onPressed,
       ),
     );
   }

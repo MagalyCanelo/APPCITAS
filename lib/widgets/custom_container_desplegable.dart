@@ -89,15 +89,13 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.zero,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    5.0), // Opcional: agrega bordes redondeados al botón
+                                borderRadius: BorderRadius.circular(5.0),
                               ),
                               backgroundColor: const Color(0xFF9F51CA),
-                              minimumSize: const Size(40.0,
-                                  40.0), // Establece el tamaño del botón igual al del Container
+                              minimumSize: const Size(40.0, 40.0),
                             ),
                             child: SizedBox(
-                              width: 30.0, // Tamaño del icono
+                              width: 30.0,
                               height: 30.0,
                               child: Icon(
                                 expanded

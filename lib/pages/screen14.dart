@@ -82,8 +82,7 @@ class Descripcion extends StatelessWidget {
                 contenido: Column(
                   children: [
                     Align(
-                      alignment: Alignment
-                          .centerLeft, // Alinea el texto a la izquierda
+                      alignment: Alignment.centerLeft,
                       child: Text(
                         "POLITICA DE CANCELACION",
                         style: TextStyle(
