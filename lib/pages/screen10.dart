@@ -20,7 +20,7 @@ class _Screen10State extends State<Screen10> {
 
   void updateDate(DateTime date) {
     setState(() {
-      selectedDate = date;
+      selectedDate = DateTime(date.year, date.month, date.day);
     });
   }
 
@@ -104,43 +104,40 @@ class _Screen10State extends State<Screen10> {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color(0xFF9F51CA)),
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                            padding:
-                                MaterialStateProperty.all<EdgeInsetsGeometry>(
-                              const EdgeInsets.symmetric(
-                                  vertical: 11.0, horizontal: 60.0),
-                            ),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color(0xFF9F51CA)),
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          padding:
+                              MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            const EdgeInsets.symmetric(
+                                vertical: 11.0, horizontal: 60.0),
                           ),
-                          child: const Text(
-                            'Continuar',
-                            style: TextStyle(fontSize: 16.0),
-                          ),
-                          onPressed: isDateTimeSelected()
-                              ? () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const Screen11()),
-                                  );
-                                }
-                              : null),
+                        ),
+                        child: const Text(
+                          'Continuar',
+                          style: TextStyle(fontSize: 16.0),
+                        ),
+                        onPressed: isDateTimeSelected()
+                            ? () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Screen11(
+                                      selectedDate: selectedDate != null
+                                          ? selectedDate!
+                                              .toString()
+                                              .substring(0, 10)
+                                          : '',
+                                      selectedTime: selectedTime!,
+                                    ),
+                                  ),
+                                );
+                              }
+                            : null,
+                      ),
                     ),
-                    /*ElevatedButton(
-                      onPressed: isDateTimeSelected()
-                          ? () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Screen11()),
-                              );
-                            }
-                          : null,
-                      child: const Text('Continuar'),
-                    ),*/
                   ],
                 ),
               )

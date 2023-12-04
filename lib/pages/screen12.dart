@@ -1,5 +1,5 @@
 import 'package:app/pages/drawer.dart';
-import 'package:app/pages/screen11.dart';
+// import 'package:app/pages/screen11.dart';
 import 'package:app/pages/screen13.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_text.dart';
@@ -39,7 +39,7 @@ class Detalles extends StatelessWidget {
                 child: Column(
                   children: [
                     const Row(
-                      children: [CustomButtomText(destino: Screen11())],
+                      children: [CustomButtomText(destino: Screen12())],
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
