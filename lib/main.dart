@@ -26,8 +26,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => UserProvider(),
         ),
-        ChangeNotifierProvider<CitaProvider>(
-          create: (_) => CitaProvider(),
+        // ChangeNotifierProvider<CitaProvider>(
+        //   create: (_) => CitaProvider(),
+        // ),
+        ChangeNotifierProvider(
+          create: (_) => CitaModel(),
         ),
       ],
       child: const MaterialApp(

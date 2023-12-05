@@ -3,6 +3,7 @@ import 'package:app/pages/screen10.dart';
 import 'package:app/pages/screen12.dart';
 import 'package:app/pages/screen7.dart';
 import 'package:app/services/cita_model.dart';
+import 'package:app/services/cita_provider.dart';
 import 'package:app/services/firebase_services.dart';
 import 'package:app/services/user_model.dart';
 import 'package:app/services/user_provider.dart';
@@ -61,6 +62,7 @@ class Contenido11 extends StatefulWidget {
 }
 
 class _Contenido11State extends State<Contenido11> {
+  TextEditingController idController = TextEditingController(text: "");
   TextEditingController dniController = TextEditingController(text: "");
   TextEditingController nomController = TextEditingController(text: "");
   TextEditingController apeController = TextEditingController(text: "");
@@ -92,6 +94,7 @@ class _Contenido11State extends State<Contenido11> {
 
       if (datosCuenta != null) {
         setState(() {
+          dniController.text = datosCuenta['id'] ?? '';
           dniController.text = datosCuenta['dni'] ?? '';
           nomController.text = datosCuenta['nombres'] ?? '';
           apeController.text = datosCuenta['apellidos'] ?? '';
@@ -110,6 +113,7 @@ class _Contenido11State extends State<Contenido11> {
   @override
   Widget build(BuildContext context) {
     print('Valor de tipoCita Screen11: ${widget.tipoCita}');
+    final citaModel = Provider.of<CitaModel>(context, listen: false);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -296,6 +300,7 @@ class _Contenido11State extends State<Contenido11> {
                             await getCuentaUsuarioById(userId);
 
                         if (datosCuenta != null) {
+                          idController.text = datosCuenta['id'] ?? '';
                           dniController.text = datosCuenta['dni'] ?? '';
                           nomController.text = datosCuenta['nombres'] ?? '';
                           apeController.text = datosCuenta['apellidos'] ?? '';
@@ -308,8 +313,8 @@ class _Contenido11State extends State<Contenido11> {
                           tipoCitaController.text = widget.tipoCita;
                         }
 
-                        // Crear la cita y obtener el ID
                         Cita cita = Cita(
+                          id: '',
                           dniPaci: dniController.text,
                           nomsPaci: nomController.text,
                           apesPaci: apeController.text,
@@ -330,8 +335,19 @@ class _Contenido11State extends State<Contenido11> {
                           cita.precioCita,
                         );
 
-                        // Navegar a la siguiente pantalla con el ID de la cita
                         if (citaId != null) {
+                          cita = cita.copyWith(id: citaId);
+                          citaModel.actualizarCita(
+                            id: citaId,
+                            dniPaci: cita.dniPaci,
+                            nomsPaci: cita.nomsPaci,
+                            apesPaci: cita.apesPaci,
+                            celPaci: cita.celPaci,
+                            fechaCita: cita.fechaCita,
+                            horaCita: cita.horaCita,
+                            tipoCita: cita.tipoCita,
+                            precioCita: cita.precioCita,
+                          );
                           Navigator.push(
                             context,
                             MaterialPageRoute(

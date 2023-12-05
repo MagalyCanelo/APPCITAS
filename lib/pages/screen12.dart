@@ -2,7 +2,6 @@ import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen11.dart';
 import 'package:app/pages/screen13.dart';
 import 'package:app/services/cita_model.dart';
-// import 'package:app/services/cita_provider.dart';
 import 'package:app/services/firebase_services.dart';
 import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_text.dart';
@@ -11,7 +10,7 @@ import 'package:app/widgets/custom_bottomc.dart';
 import 'package:app/widgets/fondo_r.dart';
 import 'package:app/widgets/fondo_resumen_cita.dart';
 import 'package:app/widgets/informacion.dart';
-// import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 class Screen12 extends StatelessWidget {
   final String citaId;
@@ -53,6 +52,7 @@ class Contenido12 extends StatefulWidget {
 
 class _Contenido12State extends State<Contenido12> {
   late Cita cita = Cita(
+    id: '',
     dniPaci: '',
     nomsPaci: '',
     apesPaci: '',
@@ -75,8 +75,8 @@ class _Contenido12State extends State<Contenido12> {
       Map<String, dynamic>? datosCita = await getCitaById(citaId);
       if (datosCita != null) {
         setState(() {
-          // Aquí asignas los datos obtenidos de la cita a tu modelo de Cita
           cita = Cita(
+            id: widget.citaId,
             dniPaci: datosCita['dniPaci'],
             nomsPaci: datosCita['nomsPaci'],
             apesPaci: datosCita['apesPaci'],
@@ -87,12 +87,12 @@ class _Contenido12State extends State<Contenido12> {
             tipoCita: datosCita['tipoCita'],
           );
 
-          // Imprime los valores para verificar
           print('Valores de cita Screen12: $cita');
         });
       }
     } catch (e) {
-      print('Error al obtener los datos de la cita Screen12: $e');
+      print(
+          'Error al obtener los datos de la cita Screen12: $e, Hora: ${cita.horaCita} ID: ${cita.id}');
     }
   }
 
@@ -117,7 +117,7 @@ class _Contenido12State extends State<Contenido12> {
                   CustomButtomText(
                     destino: Screen11(
                       selectedDate: cita.fechaCita,
-                      selectedTime: convertirHora(cita.horaCita),
+                      selectedTime: convertirHoraR(cita.horaCita),
                       precioCita: cita.precioCita,
                       tipoCita: cita.tipoCita,
                     ),
@@ -172,14 +172,7 @@ class _Contenido12State extends State<Contenido12> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(
-                      "La reserva se puede cancelar hasta el \n ${cita.fechaCita} del xxxx a las x xx",
-                      style: const TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w300,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                    buildCancelationDate(cita.fechaCita),
                   ],
                 ),
               ),
@@ -188,7 +181,7 @@ class _Contenido12State extends State<Contenido12> {
                   children: [
                     FondoRC(
                       titleRC: "RESUMEN",
-                      tipoecografiaRC: cita.fechaCita,
+                      tipoecografiaRC: cita.tipoCita,
                       precioRC: cita.precioCita,
                       duracionRC: '45 mins',
                       fechaRC: cita.fechaCita,
@@ -207,10 +200,10 @@ class _Contenido12State extends State<Contenido12> {
                           style: TextStyle(fontWeight: FontWeight.w400),
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
+                          width: MediaQuery.of(context).size.width * 0.55,
                         ),
                         Text(
-                          cita.precioCita,
+                          'S/. ${cita.precioCita}',
                           style: const TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w300,
@@ -235,7 +228,7 @@ class _Contenido12State extends State<Contenido12> {
   }
 }
 
-TimeOfDay convertirHora(String hora) {
+TimeOfDay convertirHoraR(String hora) {
   try {
     final List<String> tiempo = hora.split(':');
     final int horaInt = int.parse(tiempo[0]);
@@ -243,7 +236,65 @@ TimeOfDay convertirHora(String hora) {
     return TimeOfDay(hour: horaInt, minute: minutoInt);
   } catch (e) {
     print('Error al convertir la hora: $e');
-    return TimeOfDay(
-        hour: 0, minute: 0); // O podrías devolver un valor predeterminado
+    return const TimeOfDay(hour: 0, minute: 0);
+  }
+}
+
+Widget buildCancelationDate(String? fechaCitaStr) {
+  if (fechaCitaStr != null) {
+    try {
+      DateTime fechaCita = convertirFecha(fechaCitaStr);
+      DateTime fechaDosDiasAntes = fechaCita.subtract(const Duration(days: 2));
+
+      String textoFecha = DateFormat('dd-MM-yyyy').format(fechaDosDiasAntes);
+
+      return Text(
+        "La reserva se puede cancelar hasta el \n $textoFecha",
+        style: const TextStyle(
+          fontFamily: 'Montserrat',
+          fontWeight: FontWeight.w300,
+        ),
+        textAlign: TextAlign.center,
+      );
+    } catch (e) {
+      print('Error al convertir la fecha: $e');
+      return const Text(
+        "Fecha de cita no válida",
+        style: TextStyle(
+          fontFamily: 'Montserrat',
+          fontWeight: FontWeight.w300,
+        ),
+        textAlign: TextAlign.center,
+      );
+    }
+  } else {
+    DateTime fechaActual = DateTime.now();
+    DateTime fechaDosDiasAntes = fechaActual.subtract(const Duration(days: 2));
+
+    String textoFecha = DateFormat('dd-MM-yyyy').format(fechaDosDiasAntes);
+
+    return Text(
+      "La reserva se puede cancelar hasta el \n $textoFecha",
+      style: const TextStyle(
+        fontFamily: 'Montserrat',
+        fontWeight: FontWeight.w300,
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
+}
+
+DateTime convertirFecha(String fecha) {
+  List<String> partesFecha = fecha.split('-');
+  if (partesFecha.length == 3) {
+    int dia = int.tryParse(partesFecha[0]) ?? 1;
+    int mes = int.tryParse(partesFecha[1]) ?? 1;
+    int anio = int.tryParse(partesFecha[2]) ?? DateTime.now().year;
+
+    String fechaFormateada = '$anio-$mes-$dia';
+
+    return DateTime.parse(fechaFormateada);
+  } else {
+    return DateTime.now();
   }
 }

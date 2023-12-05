@@ -38,9 +38,9 @@ class FondoRC extends StatelessWidget {
             Text(tipoecografiaRC,
                 style: const TextStyle(fontWeight: FontWeight.w400)),
             const SizedBox(
-              width: 118,
+              width: 110,
             ),
-            Text(precioRC.toString(),
+            Text("S/. ${precioRC.toString()}",
                 style: const TextStyle(
                     fontFamily: 'Montserrat', fontWeight: FontWeight.w300))
           ],
