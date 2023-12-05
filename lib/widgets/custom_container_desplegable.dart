@@ -4,9 +4,16 @@ import 'package:flutter/material.dart';
 class CustomContainerDesplegable extends StatefulWidget {
   final String ruta;
   final String titulo;
+  final String tipoCita;
+  final String precio;
 
-  const CustomContainerDesplegable(
-      {super.key, required this.ruta, required this.titulo});
+  const CustomContainerDesplegable({
+    super.key,
+    required this.ruta,
+    required this.titulo,
+    required this.tipoCita,
+    required this.precio,
+  });
 
   @override
   State<CustomContainerDesplegable> createState() =>
@@ -163,7 +170,11 @@ class _CustomContainerDesplegableState extends State<CustomContainerDesplegable>
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Screen10(),
+                          builder: (context) => Screen10(
+                            userId: '',
+                            tipoCita: widget.tipoCita,
+                            precio: widget.precio,
+                          ),
                         ),
                       );
                     },

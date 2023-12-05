@@ -7,14 +7,19 @@ class CustomContainerImage extends StatelessWidget {
   final String titulo;
   final double altoImagen;
   final String descripcion;
+  final String tipoCita; // Nuevo parámetro para el tipo de cita
+  final String precioCita;
 
-  const CustomContainerImage(
-      {super.key,
-      required this.tamanioContainer,
-      required this.direccion,
-      required this.titulo,
-      required this.altoImagen,
-      required this.descripcion});
+  const CustomContainerImage({
+    super.key,
+    required this.tamanioContainer,
+    required this.direccion,
+    required this.titulo,
+    required this.altoImagen,
+    required this.descripcion,
+    required this.tipoCita,
+    required this.precioCita,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +85,11 @@ class CustomContainerImage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const Screen10(),
+                  builder: (context) => Screen10(
+                    userId: '',
+                    tipoCita: tipoCita,
+                    precio: precioCita,
+                  ),
                 ),
               );
             },

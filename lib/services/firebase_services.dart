@@ -85,25 +85,56 @@ Future<void> updateCuenta(
   });
 }
 
-Future<void> addCita(
+Future<String?> addCitaAndGetId(
   String dniPaci,
   String nomsPaci,
   String apesPaci,
   String celPaci,
   String fechaCita,
   String horaCita,
+  String tipoCita,
+  String precio,
 ) async {
   try {
-    await FirebaseFirestore.instance.collection("cita").add({
-      "dniPaci": dniPaci,
-      "nomsPaci": nomsPaci,
-      "apesPaci": apesPaci,
-      "celPaci": celPaci,
-      "fechaCita": fechaCita,
-      "horaCita": horaCita,
-    });
-    print('Información de la cita guardada exitosamente en Firestore.');
+    CollectionReference citas = FirebaseFirestore.instance.collection('cita');
+
+    Map<String, dynamic> data = {
+      'dniPaci': dniPaci,
+      'nomsPaci': nomsPaci,
+      'apesPaci': apesPaci,
+      'celPaci': celPaci,
+      'fechaCita': fechaCita,
+      'horaCita': horaCita,
+      'tipoCita': tipoCita,
+      'precioCita': precio,
+    };
+
+    DocumentReference documentReference = await citas.add(data);
+
+    return documentReference.id;
   } catch (e) {
-    print('Error al guardar la información de la cita en Firestore: $e');
+    print('Error al agregar la cita: $e');
+    return null;
+  }
+}
+
+Future<Map<String, dynamic>?> getCitaById(String citaId) async {
+  try {
+    DocumentSnapshot citaSnapshot = await FirebaseFirestore.instance
+        .collection('cita') // Reemplaza 'citas' con el nombre de tu colección
+        .doc(citaId)
+        .get();
+
+    if (citaSnapshot.exists) {
+      Map<String, dynamic>? citaData =
+          citaSnapshot.data() as Map<String, dynamic>?;
+      if (citaData != null) {
+        return citaData;
+      }
+    }
+    return null;
+  } catch (e) {
+    print('Error al obtener los datos de la cita: $e');
+    return null;
   }
 }

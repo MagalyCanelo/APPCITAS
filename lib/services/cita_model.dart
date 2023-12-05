@@ -5,6 +5,8 @@ class Cita {
   late String celPaci;
   late String fechaCita;
   late String horaCita;
+  late String tipoCita;
+  late String precioCita;
 
   Cita({
     required this.dniPaci,
@@ -13,16 +15,7 @@ class Cita {
     required this.celPaci,
     required this.fechaCita,
     required this.horaCita,
+    required this.tipoCita,
+    required this.precioCita,
   });
-
-  void guardarInformacion() {
-    print('Guardando información de la cita:');
-    print('DNI del paciente: $dniPaci');
-    print('Nombres del paciente: $nomsPaci');
-    print('Apellidos del paciente: $apesPaci');
-    print('Celular del paciente: $celPaci');
-    print('Fecha de la cita: $fechaCita');
-    print('Hora de la cita: $horaCita');
-    print('Información guardada exitosamente.');
-  }
 }

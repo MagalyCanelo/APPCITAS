@@ -51,6 +51,8 @@ class _Screen9State extends State<Screen9> with TickerProviderStateMixin {
               const CustomContainerDesplegable(
                 ruta: 'assets/img/ecografiaObstetrica.jpg',
                 titulo: 'ECOGRAFÍA OBSTETRICA',
+                tipoCita: 'ECOGRAFÍA OBSTETRICA',
+                precio: '50.0',
               ),
               const SizedBox(
                 height: 20.0,
@@ -58,6 +60,8 @@ class _Screen9State extends State<Screen9> with TickerProviderStateMixin {
               const CustomContainerDesplegable(
                 ruta: 'assets/img/ecografiaTransvaginal.jpg',
                 titulo: 'ECOGRAFÍA TRANSVAGINAL',
+                tipoCita: 'ECOGRAFÍA TRANSVAGINAL',
+                precio: '50.0',
               ),
               const SizedBox(
                 height: 20.0,
@@ -65,6 +69,8 @@ class _Screen9State extends State<Screen9> with TickerProviderStateMixin {
               const CustomContainerDesplegable(
                 ruta: 'assets/img/controlPrenatal.jpg',
                 titulo: 'CONTROL PRENATAL',
+                tipoCita: 'CONTROL PRENATAL',
+                precio: '50.0',
               )
             ],
           ),

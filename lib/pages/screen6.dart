@@ -37,28 +37,37 @@ class Screen6 extends StatelessWidget {
                 ),
                 const SizedBox(height: 20.0),
                 const CustomContainerImage(
-                    tamanioContainer: 290.0,
-                    direccion: 'assets/img/ecografiaObstetrica.jpg',
-                    titulo: 'Ecografías Obstetricas',
-                    altoImagen: 129.0,
-                    descripcion:
-                        'Examen clínico que resulta útil para establecer la presencia de un embrión/feto con vida y estimar el tiempo de gestación del embarazo.'),
+                  tamanioContainer: 290.0,
+                  direccion: 'assets/img/ecografiaObstetrica.jpg',
+                  titulo: 'Ecografías Obstetricas',
+                  altoImagen: 129.0,
+                  descripcion:
+                      'Examen clínico que resulta útil para establecer la presencia de un embrión/feto con vida y estimar el tiempo de gestación del embarazo.',
+                  tipoCita: 'ECOGRAFÍA OBSTETRICA',
+                  precioCita: '50.0',
+                ),
                 const SizedBox(height: 20.0),
                 const CustomContainerImage(
-                    tamanioContainer: 290.0,
-                    direccion: 'assets/img/ecografiaTransvaginal.jpg',
-                    titulo: 'Ecografías Transvaginales',
-                    altoImagen: 129.0,
-                    descripcion:
-                        'Evalúa los órganos reproductores femeninos, además detecta el desarrollo del feto en el útero en una etapa más temprana.'),
+                  tamanioContainer: 290.0,
+                  direccion: 'assets/img/ecografiaTransvaginal.jpg',
+                  titulo: 'Ecografías Transvaginales',
+                  altoImagen: 129.0,
+                  descripcion:
+                      'Evalúa los órganos reproductores femeninos, además detecta el desarrollo del feto en el útero en una etapa más temprana.',
+                  tipoCita: 'ECOGRAFÍA TRANSVAGINAL',
+                  precioCita: '50.0',
+                ),
                 const SizedBox(height: 20.0),
                 const CustomContainerImage(
-                    tamanioContainer: 290.0,
-                    direccion: 'assets/img/ecografiaObstetrica.jpg',
-                    titulo: 'Control Penatral',
-                    altoImagen: 129.0,
-                    descripcion:
-                        'Cuidado médico durante el embarazo para asegurar la salud de la madre y el bebé, que incluye exámenes, consejería y seguimiento.')
+                  tamanioContainer: 290.0,
+                  direccion: 'assets/img/ecografiaObstetrica.jpg',
+                  titulo: 'Control Penatral',
+                  altoImagen: 129.0,
+                  descripcion:
+                      'Cuidado médico durante el embarazo para asegurar la salud de la madre y el bebé, que incluye exámenes, consejería y seguimiento.',
+                  tipoCita: 'CONTROL PRENATAL',
+                  precioCita: '50.0',
+                )
               ],
             )),
       ),

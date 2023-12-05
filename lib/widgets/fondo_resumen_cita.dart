@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class FondoRC extends StatelessWidget {
   final String titleRC;
   final String tipoecografiaRC;
-  final double precioRC;
-  final int duracionRC;
+  final String precioRC;
+  final String duracionRC;
   final String fechaRC;
   final String horaRC;
 

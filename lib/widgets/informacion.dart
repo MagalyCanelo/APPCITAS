@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class InformacionD extends StatelessWidget {
   final String titleI;
-  final int dniI;
+  final String dniI;
   final String nombresI;
   final String apellidosI;
-  final int celularI;
+  final String celularI;
 
   const InformacionD({
     Key? key,

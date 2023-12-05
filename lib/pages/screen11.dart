@@ -19,18 +19,26 @@ import 'package:intl/intl.dart';
 class Screen11 extends StatelessWidget {
   final String selectedDate;
   final TimeOfDay selectedTime;
-  const Screen11({
-    super.key,
-    required this.selectedDate,
-    required this.selectedTime,
-  });
+  final String precioCita;
+  final String tipoCita;
+  const Screen11(
+      {super.key,
+      required this.selectedDate,
+      required this.selectedTime,
+      required this.precioCita,
+      required this.tipoCita});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Reina Isabel",
-      home: Contenido11(selectedDate: selectedDate, selectedTime: selectedTime),
+      home: Contenido11(
+        selectedDate: selectedDate,
+        selectedTime: selectedTime,
+        precioCita: precioCita,
+        tipoCita: tipoCita,
+      ),
     );
   }
 }
@@ -38,11 +46,15 @@ class Screen11 extends StatelessWidget {
 class Contenido11 extends StatefulWidget {
   final String selectedDate;
   final TimeOfDay selectedTime;
-  const Contenido11({
-    super.key,
-    required this.selectedDate,
-    required this.selectedTime,
-  });
+  final String precioCita;
+  final String tipoCita;
+
+  const Contenido11(
+      {super.key,
+      required this.selectedDate,
+      required this.selectedTime,
+      required this.precioCita,
+      required this.tipoCita});
 
   @override
   State<Contenido11> createState() => _Contenido11State();
@@ -55,6 +67,8 @@ class _Contenido11State extends State<Contenido11> {
   TextEditingController celController = TextEditingController(text: "");
   TextEditingController fechaController = TextEditingController(text: "");
   TextEditingController horaController = TextEditingController(text: "");
+  TextEditingController precioCitaController = TextEditingController(text: "");
+  TextEditingController tipoCitaController = TextEditingController(text: "");
 
   @override
   void initState() {
@@ -73,7 +87,6 @@ class _Contenido11State extends State<Contenido11> {
       User currentUser = userProvider.getUser();
 
       String userId = currentUser.id;
-      print('ID del usuario actual perfil: $userId');
 
       Map<String, dynamic>? datosCuenta = await getCuentaUsuarioById(userId);
 
@@ -85,6 +98,8 @@ class _Contenido11State extends State<Contenido11> {
           celController.text = datosCuenta['celular'] ?? '';
           fechaController.text = formatDate(widget.selectedDate);
           horaController.text = widget.selectedTime.format(context);
+          precioCitaController.text = widget.precioCita;
+          tipoCitaController.text = widget.tipoCita;
         });
       }
     } catch (e) {
@@ -94,6 +109,8 @@ class _Contenido11State extends State<Contenido11> {
 
   @override
   Widget build(BuildContext context) {
+    print('Valor de tipoCita Screen11: ${widget.tipoCita}');
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(backgroundColor: const Color(0XFFF23574)),
@@ -106,7 +123,14 @@ class _Contenido11State extends State<Contenido11> {
           child: Column(
             children: [
               const Row(
-                children: [CustomButtomText(destino: Screen10())],
+                children: [
+                  CustomButtomText(
+                      destino: Screen10(
+                    userId: '',
+                    tipoCita: '',
+                    precio: '50.0',
+                  )),
+                ],
               ),
               Padding(
                 padding:
@@ -262,7 +286,29 @@ class _Contenido11State extends State<Contenido11> {
                       title: 'Validar',
                       icono: Icons.done,
                       tam: 19.0,
-                      onPressed: () {
+                      onPressed: () async {
+                        // Obtener los datos al presionar el botón
+                        UserProvider userProvider =
+                            Provider.of<UserProvider>(context, listen: false);
+                        User currentUser = userProvider.getUser();
+                        String userId = currentUser.id;
+                        Map<String, dynamic>? datosCuenta =
+                            await getCuentaUsuarioById(userId);
+
+                        if (datosCuenta != null) {
+                          dniController.text = datosCuenta['dni'] ?? '';
+                          nomController.text = datosCuenta['nombres'] ?? '';
+                          apeController.text = datosCuenta['apellidos'] ?? '';
+                          celController.text = datosCuenta['celular'] ?? '';
+                          fechaController.text =
+                              formatDate(widget.selectedDate);
+                          horaController.text =
+                              widget.selectedTime.format(context);
+                          precioCitaController.text = widget.precioCita;
+                          tipoCitaController.text = widget.tipoCita;
+                        }
+
+                        // Crear la cita y obtener el ID
                         Cita cita = Cita(
                           dniPaci: dniController.text,
                           nomsPaci: nomController.text,
@@ -270,20 +316,33 @@ class _Contenido11State extends State<Contenido11> {
                           celPaci: celController.text,
                           fechaCita: fechaController.text,
                           horaCita: horaController.text,
+                          tipoCita: widget.tipoCita,
+                          precioCita: widget.precioCita,
                         );
-                        addCita(
+                        String? citaId = await addCitaAndGetId(
                           cita.dniPaci,
                           cita.nomsPaci,
                           cita.apesPaci,
                           cita.celPaci,
                           cita.fechaCita,
                           cita.horaCita,
+                          cita.tipoCita,
+                          cita.precioCita,
                         );
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Screen12()),
-                        );
+
+                        // Navegar a la siguiente pantalla con el ID de la cita
+                        if (citaId != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Screen12(
+                                citaId: citaId,
+                                precioCita: widget.precioCita,
+                                tipoCita: widget.tipoCita,
+                              ),
+                            ),
+                          );
+                        }
                       },
                     ),
                     const CustomButtomIcon(
@@ -308,7 +367,12 @@ class _Contenido11State extends State<Contenido11> {
   }
 }
 
-String formatDate(String date) {
-  DateTime parsedDate = DateTime.parse(date);
-  return DateFormat('dd-MM-yyyy').format(parsedDate);
+String formatDate(String? date) {
+  if (date != null) {
+    DateTime? parsedDate = DateTime.tryParse(date);
+    if (parsedDate != null) {
+      return DateFormat('dd-MM-yyyy').format(parsedDate);
+    }
+  }
+  return '';
 }

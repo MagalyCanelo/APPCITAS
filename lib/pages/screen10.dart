@@ -7,14 +7,47 @@ import 'package:app/widgets/custom_calendar.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class Screen10 extends StatefulWidget {
-  const Screen10({super.key});
+class Screen10 extends StatelessWidget {
+  final String userId;
+  final String tipoCita;
+  final String precio;
+  const Screen10({
+    super.key,
+    required this.userId,
+    required this.tipoCita,
+    required this.precio,
+  });
 
   @override
-  _Screen10State createState() => _Screen10State();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Reina Isabel",
+      home: Contenido10(
+        userId: userId,
+        tipoCita: tipoCita,
+        precio: precio,
+      ),
+    );
+  }
 }
 
-class _Screen10State extends State<Screen10> {
+class Contenido10 extends StatefulWidget {
+  final String userId;
+  final String tipoCita;
+  final String precio;
+  const Contenido10({
+    super.key,
+    required this.userId,
+    required this.tipoCita,
+    required this.precio,
+  });
+
+  @override
+  State<Contenido10> createState() => _Contenido10State();
+}
+
+class _Contenido10State extends State<Contenido10> {
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
 
@@ -36,6 +69,7 @@ class _Screen10State extends State<Screen10> {
 
   @override
   Widget build(BuildContext context) {
+    print('Valor de tipoCita Screen10: ${widget.tipoCita}');
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -131,6 +165,8 @@ class _Screen10State extends State<Screen10> {
                                               .substring(0, 10)
                                           : '',
                                       selectedTime: selectedTime!,
+                                      tipoCita: widget.tipoCita,
+                                      precioCita: widget.precio,
                                     ),
                                   ),
                                 );

@@ -66,16 +66,16 @@ class Descripcion extends StatelessWidget {
               ),
               const InformacionD(
                   titleI: "INFORMACION DE LA PACIENTE",
-                  dniI: 12345678,
+                  dniI: "12345678",
                   nombresI: "XXXXXX XXXXX",
                   apellidosI: "XXXXXX XXXXX",
-                  celularI: 987654321),
+                  celularI: "987654321"),
               const FondoR(
                   contenido: FondoRC(
                       titleRC: "CITA",
                       tipoecografiaRC: "XXXXXXXXX XXXXXXXXX",
-                      precioRC: 99.0,
-                      duracionRC: 99,
+                      precioRC: '99.0',
+                      duracionRC: '99',
                       fechaRC: "12-12-2023",
                       horaRC: "18:36")),
               const FondoR(

@@ -1,3 +1,4 @@
+import 'package:app/services/cita_provider.dart';
 import 'package:app/services/user_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -22,7 +23,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
+        ),
+        ChangeNotifierProvider<CitaProvider>(
+          create: (_) => CitaProvider(),
+        ),
       ],
       child: const MaterialApp(
         title: 'Material App',
