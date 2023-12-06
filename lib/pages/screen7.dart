@@ -2,9 +2,12 @@ import 'package:app/pages/drawer.dart';
 import 'package:app/pages/screen8.dart';
 import 'package:app/pages/screen9.dart';
 import 'package:app/pages/screen14.dart';
+import 'package:app/services/user_model.dart';
+import 'package:app/services/user_provider.dart';
 import 'package:app/widgets/custom_bottomc.dart';
 import 'package:app/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Screen7 extends StatelessWidget {
   const Screen7({super.key});
@@ -28,6 +31,12 @@ class Contenido7 extends StatefulWidget {
 class _Contenido7State extends State<Contenido7> {
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider = Provider.of<UserProvider>(context);
+    User currentUser = userProvider.getUser();
+
+    String priNoms = obtenerPrimeraPalabra(currentUser.nombres);
+    String priApes = obtenerPrimeraPalabra(currentUser.apellidos);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFF23574),
@@ -47,10 +56,10 @@ class _Contenido7State extends State<Contenido7> {
         width: double.infinity,
         child: Column(
           children: [
-            const Padding(
-                padding: EdgeInsets.only(top: 60.0),
+            Padding(
+                padding: const EdgeInsets.only(top: 60.0),
                 child: Column(children: [
-                  CustomText(
+                  const CustomText(
                     title: 'Bienvenido(a)',
                     tam: 33,
                     color: 0XFF695C5C,
@@ -58,7 +67,7 @@ class _Contenido7State extends State<Contenido7> {
                     fontFamily: 'Otomanopee One',
                   ),
                   CustomText(
-                    title: 'xxxxxx xxxxxx',
+                    title: "$priNoms $priApes",
                     tam: 32,
                     color: 0XFF695C5C,
                     fontWeight: FontWeight.w500,
@@ -94,5 +103,14 @@ class _Contenido7State extends State<Contenido7> {
         ),
       ),
     );
+  }
+}
+
+String obtenerPrimeraPalabra(String texto) {
+  List<String> palabras = texto.split(' ');
+  if (palabras.isNotEmpty) {
+    return palabras.first;
+  } else {
+    return '';
   }
 }

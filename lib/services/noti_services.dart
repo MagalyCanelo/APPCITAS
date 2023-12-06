@@ -26,9 +26,6 @@ Future<void> mostrarNotificacion() async {
     android: androidNotificationDetails,
   );
 
-  await flutterLocalNotificationsPlugin.show(
-      1,
-      '¡Tu cita se acerca!',
-      'Hola [Nombre], recuerda que tu cita es el [Fecha] a las [Hora].',
-      notificationDetails);
+  await flutterLocalNotificationsPlugin.show(1, '¡No olvides tu cita!',
+      'Hola, recuerda que tu cita está cerca.', notificationDetails);
 }

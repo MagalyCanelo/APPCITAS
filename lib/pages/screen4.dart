@@ -55,7 +55,6 @@ class _Contenido4State extends State<Contenido4> {
       User currentUser = userProvider.getUser();
 
       String userId = currentUser.id;
-      print('ID del usuario actual perfil: $userId');
 
       Map<String, dynamic>? datosCuenta = await getCuentaUsuarioById(userId);
 

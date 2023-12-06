@@ -3,6 +3,7 @@ import 'package:app/pages/screen4.dart';
 import 'package:app/services/firebase_services.dart';
 import 'package:app/services/user_model.dart';
 import 'package:app/services/user_provider.dart';
+import 'package:app/widgets/custom_buttom_text.dart';
 import 'package:app/widgets/custom_input.dart';
 import 'package:app/widgets/custom_input_max.dart';
 import 'package:app/widgets/custom_pass.dart';
@@ -32,6 +33,7 @@ class Contenido5 extends StatefulWidget {
 }
 
 class _Contenido5State extends State<Contenido5> {
+  TextEditingController idController = TextEditingController(text: "");
   TextEditingController dniController = TextEditingController(text: "");
   TextEditingController nomController = TextEditingController(text: "");
   TextEditingController apeController = TextEditingController(text: "");
@@ -62,6 +64,7 @@ class _Contenido5State extends State<Contenido5> {
 
       if (datosCuenta != null) {
         setState(() {
+          idController.text = userId;
           dniController.text = datosCuenta['dni'] ?? '';
           nomController.text = datosCuenta['nombres'] ?? '';
           apeController.text = datosCuenta['apellidos'] ?? '';
@@ -98,6 +101,12 @@ class _Contenido5State extends State<Contenido5> {
                   ),
                   child: Column(
                     children: [
+                      Row(
+                        children: [
+                          CustomButtomText(
+                              destino: Screen4(userId: idController.text))
+                        ],
+                      ),
                       const SizedBox(height: 10.0),
                       Image.asset(
                         'assets/img/corazon.jpg',

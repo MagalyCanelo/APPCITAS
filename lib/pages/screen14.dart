@@ -32,38 +32,6 @@ class Contenido14 extends StatefulWidget {
 }
 
 class _Contenido14State extends State<Contenido14> {
-  /*
-  @override
-  void initState() {
-    super.initState();
-    obtenerInformacionCita(widget.citaId);
-    print("IdCita Screen12: ${widget.citaId}");
-  }
-
-  void obtenerInformacionCita(String citaId) async {
-    try {
-      Map<String, dynamic>? datosCita = await getCitaById(citaId);
-      if (datosCita != null) {
-        setState(() {
-          cita = Cita(
-            dniPaci: datosCita['dniPaci'],
-            nomsPaci: datosCita['nomsPaci'],
-            apesPaci: datosCita['apesPaci'],
-            celPaci: datosCita['celPaci'],
-            fechaCita: datosCita['fechaCita'],
-            horaCita: datosCita['horaCita'],
-            precioCita: datosCita['precioCita'],
-            tipoCita: datosCita['tipoCita'],
-          );
-
-          print('Valores de cita Screen12: $cita');
-        });
-      }
-    } catch (e) {
-      print('Error al obtener los datos de la cita Screen12: $e');
-    }
-  }
-*/
   @override
   Widget build(BuildContext context) {
     final citaModel = Provider.of<CitaModel>(context);
@@ -107,7 +75,6 @@ class _Contenido14State extends State<Contenido14> {
                   ],
                 ),
               ),
-              // Text('ID de la cita: ${cita.id}'),
               InformacionD(
                 titleI: "INFORMACION DE LA PACIENTE",
                 dniI: cita.dniPaci,

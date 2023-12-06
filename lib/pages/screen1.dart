@@ -183,40 +183,6 @@ class _Contenido1State extends State<Contenido1> {
                           ],
                         ),
                       ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white),
-                          padding:
-                              MaterialStateProperty.all<EdgeInsetsGeometry>(
-                            const EdgeInsets.all(16.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Screen2(),
-                            ),
-                          );
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset('assets/img/google.png',
-                                width: 25.0, height: 25.0),
-                            const SizedBox(width: 8),
-                            const CustomText(
-                              title: 'Ingresa con Google',
-                              tam: 15,
-                              color: 0XFF695C5C,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'Montserrat',
-                            )
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ],

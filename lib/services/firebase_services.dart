@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 FirebaseFirestore db = FirebaseFirestore.instance;
-
+/*
 Future<List> getCuentas() async {
   List cuentas = [];
   CollectionReference collectionReferenceCuentas = db.collection('cuenta');
@@ -25,26 +25,7 @@ Future<List> getCuentas() async {
 
   return cuentas;
 }
-
-Future<Map<String, dynamic>?> getCuentaUsuarioById(String userId) async {
-  try {
-    DocumentSnapshot documentSnapshot =
-        await db.collection('cuenta').doc(userId).get();
-
-    if (documentSnapshot.exists) {
-      Map<String, dynamic>? userData =
-          documentSnapshot.data() as Map<String, dynamic>?;
-
-      if (userData != null) {
-        return userData;
-      }
-    }
-    return null;
-  } catch (e) {
-    print('Error al obtener los datos del usuario: $e');
-    return null;
-  }
-}
+*/
 
 Future<void> addCuenta(
   String dni,
@@ -64,6 +45,26 @@ Future<void> addCuenta(
       "contra": contra,
     });
   } catch (e) {}
+}
+
+Future<Map<String, dynamic>?> getCuentaUsuarioById(String userId) async {
+  try {
+    DocumentSnapshot documentSnapshot =
+        await db.collection('cuenta').doc(userId).get();
+
+    if (documentSnapshot.exists) {
+      Map<String, dynamic>? userData =
+          documentSnapshot.data() as Map<String, dynamic>?;
+
+      if (userData != null) {
+        return userData;
+      }
+    }
+    return null;
+  } catch (e) {
+    print('Error al obtener los datos del usuario: $e');
+    return null;
+  }
 }
 
 Future<void> updateCuenta(
@@ -120,10 +121,8 @@ Future<String?> addCitaAndGetId(
 
 Future<Map<String, dynamic>?> getCitaById(String citaId) async {
   try {
-    DocumentSnapshot citaSnapshot = await FirebaseFirestore.instance
-        .collection('cita') // Reemplaza 'citas' con el nombre de tu colección
-        .doc(citaId)
-        .get();
+    DocumentSnapshot citaSnapshot =
+        await FirebaseFirestore.instance.collection('cita').doc(citaId).get();
 
     if (citaSnapshot.exists) {
       Map<String, dynamic>? citaData =
@@ -136,5 +135,16 @@ Future<Map<String, dynamic>?> getCitaById(String citaId) async {
   } catch (e) {
     print('Error al obtener los datos de la cita: $e');
     return null;
+  }
+}
+
+Future<void> eliminarCita(String citaId) async {
+  try {
+    CollectionReference citas = FirebaseFirestore.instance.collection('cita');
+
+    await citas.doc(citaId).delete();
+    print('Cita eliminada exitosamente');
+  } catch (e) {
+    print('Error al eliminar la cita: $e');
   }
 }

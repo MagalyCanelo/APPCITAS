@@ -62,22 +62,12 @@ class Screen8 extends StatelessWidget {
                           color: const Color(0XFF413D3D),
                           margin: const EdgeInsets.symmetric(horizontal: 15.0),
                         ),
-                        noti('Faltan 03 dias para tu cita')
+                        noti('Hola, recuerda que tu cita \n está cerca.')
                       ],
                     )),
                   ),
                   const SizedBox(height: 20.0),
                   const BotonNoti(),
-                  /*FutureBuilder(
-                      future: getCuentas(),
-                      builder: ((context, snapshot) {
-                        return ListView.builder(
-                          itemCount: snapshot.data?.length,
-                          itemBuilder: (context, index) {
-                            return Text(snapshot.data?[index]['correo']);
-                          },
-                        );
-                      }))*/
                 ]))),
         bottomNavigationBar: BottomAppBar(
           color: const Color(0xFFF23574),
@@ -94,16 +84,19 @@ Widget noti(String texto1) {
     child: Column(
       children: [
         const Text(
-          'RECORDATORIO',
+          '¡No olvides tu cita!',
           style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
               fontFamily: 'Montserrat'),
         ),
-        Text(
-          texto1,
-          style: const TextStyle(fontSize: 15, fontFamily: 'Montserrat'),
-        ),
+        Center(
+          child: Text(
+            texto1,
+            style: const TextStyle(fontSize: 15, fontFamily: 'Montserrat'),
+            textAlign: TextAlign.center,
+          ),
+        )
       ],
     ),
   );
