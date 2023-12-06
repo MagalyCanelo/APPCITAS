@@ -7,7 +7,7 @@ class CustomContainerImage extends StatelessWidget {
   final String titulo;
   final double altoImagen;
   final String descripcion;
-  final String tipoCita; // Nuevo parámetro para el tipo de cita
+  final String tipoCita;  
   final String precioCita;
 
   const CustomContainerImage({

@@ -1,31 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 FirebaseFirestore db = FirebaseFirestore.instance;
-/*
-Future<List> getCuentas() async {
-  List cuentas = [];
-  CollectionReference collectionReferenceCuentas = db.collection('cuenta');
-
-  QuerySnapshot queryCuentas = await collectionReferenceCuentas.get();
-
-  for (var doc in queryCuentas.docs) {
-    final Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    final person = {
-      "dni": data['dni'],
-      "nombres": data['noms'],
-      "apellidos": data['apells'],
-      "celular": data['cel'],
-      "correo": data['correo'],
-      "contra": data['contra'],
-      "uid": doc.id,
-    };
-
-    cuentas.add(person);
-  }
-
-  return cuentas;
-}
-*/
 
 Future<void> addCuenta(
   String dni,

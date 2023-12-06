@@ -4,7 +4,7 @@ class CustomCancelar2 extends StatelessWidget {
   final String title;
   final IconData icono;
   final double tam;
-  final VoidCallback? onPressed; // Nuevo parámetro para onPressed
+  final VoidCallback? onPressed; 
   const CustomCancelar2({
     super.key,
     required this.title,

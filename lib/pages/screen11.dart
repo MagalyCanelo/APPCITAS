@@ -291,7 +291,6 @@ class _Contenido11State extends State<Contenido11> {
                       icono: Icons.done,
                       tam: 19.0,
                       onPressed: () async {
-                        // Obtener los datos al presionar el botón
                         UserProvider userProvider =
                             Provider.of<UserProvider>(context, listen: false);
                         User currentUser = userProvider.getUser();

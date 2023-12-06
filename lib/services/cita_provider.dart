@@ -41,7 +41,6 @@ class CitaModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Función para actualizar los datos de la cita
   void actualizarCita({
     required String id,
     required String dniPaci,
